@@ -19,3 +19,6 @@
 [submodule "vim/bundle/guicolorscheme"]
 	path = vim/bundle/guicolorscheme
 	url = git://github.com/thinca/vim-guicolorscheme
+[submodule "vim/bundle/gnupg"]
+	path = vim/bundle/gnupg
+	url = git://github.com/vim-scripts/gnupg.vim
