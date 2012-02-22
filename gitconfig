@@ -1,0 +1,22 @@
+[user]
+	name = Hendrik Sollich
+	email = Hendrik@hoodie.de
+	editor = vim
+[pack]
+  threads = 2
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	grep = auto 
+  ui = auto
+[diff]
+	tool = vimdiff
+[core]
+	editor = vim
+[alias]
+	unstage = reset HEAD --
+	last = log -1 HEAD
+  st = status
+  server = daemon --reuseaddr --base-path=. --export-all --verbose --enable=receive-pack
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
