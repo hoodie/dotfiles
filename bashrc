@@ -17,10 +17,12 @@ else
 fi
 
 longps(){
-  PS1="${name_color}\u${white}@${blue}\h${white}:${BLUE}\w${white}\$ "
+  PS1="${name_color}\u${white}:${BLUE}\w${white}\$ "
+  #PS1="${name_color}\u${white}@${blue}\h${white}:${BLUE}\w${black}\$ "
 }
 shortps(){
   PS1="${name_color}\u${white}:${blue}\W${white}\$ "
+  #PS1="${name_color}\u${white}:${blue}\W${black}\$ "
 }
 
 shortps
