@@ -37,7 +37,6 @@
   set autochdir                        " always switch to the current file directory
   set directory=~/.vim/tmp             " directory to place swap files in
   set cursorline                       " highlight current line
-  set statusline=2
   "set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 
   "set cpoptions=eA
