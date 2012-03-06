@@ -1,0 +1,20 @@
+#!/bin/bash
+load()
+{
+
+  local n=$(($1 / 10))
+  local ticks=(_ ▁ ▁ ▂ ▃ ▄ ▄ ▅ ▆ ▇ █ )
+  local colors=(990000 bb0000 dd0000 ff2200 ff9900 ffaa00 ffdd00 bbff00 00ff00 00dd00 00bb00 )
+  local bar=${ticks[$n]}
+  local color="#[fg=#${colors[$(($n))]}]"
+  echo "$color$bar$1%#[default]"
+  #echo -n "$color█#[default]"
+  #echo -n "$color$bar#[default]"
+}
+if [ -f /usr/bin/acpi ] 
+then
+  n=$(acpi -b | sed -e "s/.*\s\(..\)%.*/\1/g")
+  load $n
+fi
+
+
