@@ -1,20 +1,27 @@
 #!/bin/bash
 load()
 {
-
   local n=$(($1 / 10))
-  local ticks=(_ ▁ ▁ ▂ ▃ ▄ ▄ ▅ ▆ ▇ █ )
+  local hticks=( _  ▁ ▁ ▂ ▃ ▄ ▄ ▅ ▆ ▇ █ █ )
+  local vticks=(' ' ▏ ▏ ▎ ▍ ▌ ▋ ▋ ▋ ▊ █ █ )
   local colors=(990000 bb0000 dd0000 ff2200 ff9900 ffaa00 ffdd00 bbff00 00ff00 00dd00 00bb00 )
-  local bar=${ticks[$n]}
-  local color="#[fg=#${colors[$(($n))]}]"
-  echo "$color$bar$1%#[default]"
-  #echo -n "$color█#[default]"
-  #echo -n "$color$bar#[default]"
+  local bar=${hticks[$n]}
+
+  local fgcolor="#[fg=#${colors[$(($n))]}]"
+  local bgcolor="#[fg=#000000 bg=#${colors[$(($n))]}]"
+  if [ $1 -lt 100 ]
+  then
+    echo -n " $fgcolor$1%$bar#[default]"
+  else
+    echo -n " $fgcolor$1%$bgcolor #[default]"
+  fi
 }
+
 if [ -f /usr/bin/acpi ] 
 then
-  n=$(acpi -b | sed -e "s/.*\s\(.\{1,3\}\)%.*/\1/g")
-  load $n
+  l=$(acpi -b | sed -e "s/.*\s\(.\{1,3\}\)%.*/\1/g")
+  for n in $l
+  do
+    load $n
+  done
 fi
-
-
