@@ -47,25 +47,29 @@
   highlight Comment guifg=Orange
   highlight CursorLine guibg=Black
 
-" magic indent plugin for many languages
+  " magic indent plugin for many languages
   filetype indent plugin on
 
-" gvim features in vim
-  set t_Co=256
-  if has("gui_running") " everything you want from your gui
-    colorscheme jellybeans
-    "set guifont=Monospace\ 8
-    set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
-    " 'a' autoselect ( for copy and pasting )
-    " 'c'	Use console dialogs instead of popup dialogs for simple choices.
-	  " 'm'	Menu bar is present.
-	  " 't'	Include tearoff menu items.  Currently only works for Win32, GTK+, and Motif 1.2 GUI.
-    set guioptions=camTet
-    set mousehide
+  " gvim features in vim
+  if &term=~'linux' " here we only got a nongraphic terminal - no colors
+    colorscheme darkdevel
   else
-    colorscheme lettuce
+    colorscheme lettuce " working much with c++ lately
     "colorscheme jellybeans
-    set mouse=a
+    "
+    if has("gui_running") " everything you want from your gui
+      "set guifont=Monospace\ 8
+      set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
+      " 'a' autoselect ( for copy and pasting )
+      " 'c'	Use console dialogs instead of popup dialogs for simple choices.
+      " 'm'	Menu bar is present.
+      " 't'	Include tearoff menu items.  Currently only works for Win32, GTK+, and Motif 1.2 GUI.
+      set guioptions=camTet
+      set mousehide
+    else
+      set t_Co=256
+      set mouse=a
+    endif
   endif
 
 " Formating helpers

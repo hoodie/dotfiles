@@ -2,11 +2,10 @@
 if [ -f ~/.bashrc ]; then
   . ~/.bashrc
   longps(){
-    PS1="${lightgreen}\u${white}@${blue}\h${white}:${blue}\w${NC}\$ "
+    PS1="${green}\u${white}@${blue}\h${white}:${blue}\w${NC}\$ "
   }
   shortps(){
-    PS1="${lightgreen}\u${white}@${blue}\h${white}:${blue}\W${NC}\$ "
+    PS1="${green}\u${white}@${blue}\h${white}:${blue}\W${NC}\$ "
   }
   longps
-
 fi

@@ -90,6 +90,36 @@ function wmp2ogg() { find . -iname '*wma' \( -exec ffmpeg -i {} -acodec vorbis -
 # to hell with shortlinks
 function resolve(){ curl -Is $1 | sed -n 's/^Location: //p'; }
 
+function color_palett(){
+for j in 3 4 9 10;
+do
+  for i in `seq 0 7`; do echo -en "\e[0;${j}${i}m ${j}${i}█"; echo -en "\e[1;${j}${i}m█ "; done;
+    echo -e "\e[0;m\n";
+done;
+}
+function text_color_palett(){
+echo -e \
+$red█ \
+$RED█ \
+$blue█ \
+$BLUE█ \
+$cyan█ \
+$CYAN█ \
+$black█ \
+$BLACK█ \
+$green█ \
+$GREEN█ \
+$lightgreen█ \
+$LIGHTGREEN█ \
+$purple█ \
+$PURPLE█ \
+$magenta█ \
+$MAGENTA█ \
+$white█ \
+$WHITE█ \
+$NC█
+}
+
 function extract () {
   if [ -f $1 ] ; then
     case $1 in
