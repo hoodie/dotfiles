@@ -32,7 +32,7 @@ function pass(){ echo -e ${bldwht}* ${txtrst}${txtwht}$*${txtrst} ; }
 ##### everything above this can be reused
 
 
-rcs="vim bash_aliases bash_profile bashrc gitconfig inputrc irbrc vimrc"
+rcs="vim bash_aliases bash_profile bashrc gitconfig inputrc irbrc vimrc tmux.conf"
 backup_dir="$HOME/dotfiles_backup/"
 
 function test() {
