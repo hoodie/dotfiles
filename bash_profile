@@ -1,11 +1,10 @@
 #!/bin/bash
 if [ -f ~/.bashrc ]; then
   . ~/.bashrc
-  longps(){
-    PS1="${green}\u${white}@${blue}\h${white}:${blue}\w${NC}\$ "
-  }
-  shortps(){
-    PS1="${green}\u${white}@${blue}\h${white}:${blue}\W${NC}\$ "
-  }
+  if [ -n "$SSH_CLIENT" ]
+  then
+    longps(){ PS1="${green}\u${white}@${blue}\h${white}:${blue}\w${NC}\$ "; }
+    shortps(){ PS1="${green}\u${white}@${blue}\h${white}:${blue}\W${NC}\$ "; }
+  fi
   longps
 fi
