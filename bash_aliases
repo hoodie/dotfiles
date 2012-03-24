@@ -53,9 +53,9 @@ alias tmux='tmux -2'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias gr='find . | grep -v .svn | xargs grep -Iisrn'
-alias cgr='find . -iname \*.c | grep -v .svn | xargs grep -Iisrn'
-alias hgr='find . -iname \*.h | grep -v .svn | xargs grep -Iisrn'
+alias gr='find . | grep -v .svn | xargs grep -Isn --color=auto'
+alias cgr='find . -iname \*.c | grep -v .svn | xargs grep -Isn --color=auto'
+alias hgr='find . -iname \*.h | grep -v .svn | xargs grep -Isn --color=auto'
 alias grepmail="grep -Eio '\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b'"
 
 alias du="du -h"
