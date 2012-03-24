@@ -38,6 +38,9 @@
   "set directory=~/.vim/tmp             " directory to place swap files in
   set cursorline                       " highlight current line
   "set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+  "set statusline=%f%m%r%h%w\ %L\ %y\ [%p%%][%04l,%04v]
+	set statusline=%<%f\ %y\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ %nb
+  set laststatus=2
 
   "set cpoptions=eA
   "set lazyredraw                      " not always useful
