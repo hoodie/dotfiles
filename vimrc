@@ -33,9 +33,9 @@
   set scrolloff=5                      " keep at least 5 lines below/above cursor
   set sidescrolloff=5                  " keep at least 5 lines left/right of cursor
   set mouse=a                          " use mouse everywhere
-  set backupdir=~/.vim/backup          " where to put backup files
+  "set backupdir=~/.vim/backup          " where to put backup files
   set autochdir                        " always switch to the current file directory
-  set directory=~/.vim/tmp             " directory to place swap files in
+  "set directory=~/.vim/tmp             " directory to place swap files in
   set cursorline                       " highlight current line
   "set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
   "set statusline=%f%m%r%h%w\ %L\ %y\ [%p%%][%04l,%04v]
@@ -57,7 +57,7 @@
   if &term=~'linux' " here we only got a nongraphic terminal - no colors
     colorscheme darkdevel
   else
-    colorscheme lettuce " working much with c++ lately
+    colorscheme lucius " working much with c++ lately
     "colorscheme jellybeans
     "
     if has("gui_running") " everything you want from your gui
