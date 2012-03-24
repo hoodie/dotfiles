@@ -32,8 +32,9 @@ alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 alias cd..="cd .." #work around a common typo
 alias cdd="cd ~/Desktop && ls -h"
-alias cdo="pwd | sed 's/ /\\\ /g' > ~/.cdo"   # save current dir location
-alias cdn='cd $(cat ~/.cdo)'                   # cd  to saved dir location
+alias cds="pwd | sed 's/ /\\\ /g' > ~/.cdo"   # save current dir location
+alias cdo='cd $(cat ~/.cdo)'                   # cd  to saved dir location
+function cdl(){ cd $1; ls ;}
 alias l='ls'
 alias lsd='ls -d */'
 alias ls='ls --color=auto --group-directories-first'
