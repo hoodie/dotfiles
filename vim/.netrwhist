@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/hendrik/TUD/auditorium/auditorium/app/models'
+let g:netrw_dirhist_2='/home/hendrik/TUD/auditorium/auditorium/app/views/notifications'
+let g:netrw_dirhist_3='/home/hendrik/TUD/auditorium/auditorium/app/views'
+let g:netrw_dirhist_4='/home/hendrik/TUD/auditorium/auditorium/app/views/posts'
+let g:netrw_dirhist_5='/home/hendrik/TUD/auditorium/auditorium/app/views'
+let g:netrw_dirhist_6='/home/hendrik/TUD/auditorium/auditorium/app/views/courses'
+let g:netrw_dirhist_7='/home/hendrik/TUD/auditorium/auditorium/app/controllers'

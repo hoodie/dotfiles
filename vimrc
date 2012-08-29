@@ -67,7 +67,7 @@
       " 'c'	Use console dialogs instead of popup dialogs for simple choices.
       " 'm'	Menu bar is present.
       " 't'	Include tearoff menu items.  Currently only works for Win32, GTK+, and Motif 1.2 GUI.
-      set guioptions=camTet
+      set guioptions=caTet
       set mousehide
     else
       set t_Co=256
@@ -137,6 +137,7 @@
   map <F10> :call WrapToggle()<CR>
   imap <F10> :call WrapToggle()<CR>
 
+  map <F3> :nohl<CR>
 
 " latex stuff
   filetype plugin on
