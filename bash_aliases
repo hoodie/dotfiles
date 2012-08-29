@@ -88,6 +88,11 @@ function mkcd() { mkdir -p "$@" && cd "$_"; }
 
 function wmp2ogg() { find . -iname '*wma' \( -exec ffmpeg -i {} -acodec vorbis -aq 5  {}.ogg \; \);  }
 
+function e() {
+  VIMARGS="--servername vimsrv --remote-silent"
+  vim $VIMARGS $@;
+}
+
 # to hell with shortlinks
 function resolve(){ curl -Is $1 | sed -n 's/^Location: //p'; }
 
@@ -150,14 +155,14 @@ function cmdfu(){
 # ARCHLinux package search
 function pacs() {
 	local CL='\\e['
-		local RS='\\e[0;0m'
+  local RS='\\e[0;0m'
 
-		echo -e "$(pacman -Ss "$@" | sed "
-		/^core/		s,.*,${CL}1;31m&${RS},
-		/^extra/	s,.*,${CL}0;32m&${RS},
-		/^community/	s,.*,${CL}1;35m&${RS},
-		/^[^[:space:]]/	s,.*,${CL}0;36m&${RS},
-		")"
+  echo -e "$(pacman -Ss "$@" | sed "
+  /^core/		s,.*,${CL}1;31m&${RS},
+  /^extra/	s,.*,${CL}0;32m&${RS},
+  /^community/	s,.*,${CL}1;35m&${RS},
+  /^[^[:space:]]/	s,.*,${CL}0;36m&${RS},
+  ")"
 }
 
 # download pdfs from website

@@ -1,0 +1,145 @@
+#!/bin/bash
+# bash interactive shell settings and additional specified commands
+
+# Custom Prompt
+set_prompt_style () {
+  local bldpur='\e[1;35m' # Purple
+  local bldblu='\e[1;34m' # Blue
+  local bldblk='\e[1;30m' # Black - Bold
+  local bldred='\e[1;31m' # Red
+  local txtrst='\e[0m'    # Text Reset
+  #  local bashuser="\[$bldpur\]\u@\[$txtrst\]"    # username
+  local bashhost="\[$bldpur\]\h\[$txtrst\]"     # hostname
+  local bashdir="\[$bldblu\]\w\[$txtrst\]"      # directory
+  local bashprompt="\[$bldblk\]:\n\[$txtrst\]"  # prompt symbol
+  if [ `whoami` == "root" ] ; then
+    # local bashuser="\[$bldred\]\u@\[$txtrst\]"
+    local bashhost="\[$bldred\]\h\[$txtrst\]"
+  fi
+  PS1="$bashuser$bashhost $bashdir$bashprompt"
+}
+set_prompt_style
+
+## Basic Settings ##
+
+# Check for an interactive session
+[ -z "$PS1" ] && return
+
+# History file: (must haves for those that use the command line alot)
+# Increase history file size,
+# increase number of commands saved (default: 500),
+# append commands instead of overwriting (nice for two or more sessions), 
+# add command to history after executing,
+# don't put duplicate lines in history, ignore same successive entries.
+export HISTFILESIZE=20000
+export HISTSIZE=5000
+shopt -s histappend
+PROMPT_COMMAND='history -a'
+export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoreboth
+
+# Autocorect 'cd' mis-spellings
+shopt -s cdspell
+# Extended pattern matching features
+shopt -s extglob
+# Hostname expansion
+#shopt -s hostcomplete
+
+# Bash completion extended
+set show-all-if-ambiguous on
+
+# Allow 'less' to view non-text files (allows viewing of compressed files)
+[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+
+# Editor
+export EDITOR=vim
+export FCEDIT=vim
+export VISUAL=vim                           # for crontab
+
+# 'ls' colors
+eval $(dircolors -b)
+
+# 'grep' colors
+alias grep='grep --color=auto'
+export GREP_COLOR="1;32"                    # green
+
+# Less Colors for Man Pages
+if [[ ${TERM} == "xterm" ]]; then
+  export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # bold mode      - main      (cyan)
+  export LESS_TERMCAP_us=$'\e[38;5;97m'     # underline mode - second    (purp)
+  export LESS_TERMCAP_so=$'\e[38;5;252m'    # standout-mode  - info/find (gray)
+  export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking - unused?   (red)
+  export LESS_TERMCAP_ue=$'\e[0m'           # end underline
+  export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
+  export LESS_TERMCAP_me=$'\e[0m'           # end all mode        - txt rest
+else
+  export LESS_TERMCAP_md=$'\e[01;34m'
+  export LESS_TERMCAP_us=$'\e[01;35m'
+  export LESS_TERMCAP_so=$'\e[01;30m'
+  export LESS_TERMCAP_mb=$'\e[01;31m'
+  export LESS_TERMCAP_ue=$'\e[0m'
+  export LESS_TERMCAP_se=$'\e[0m'
+  export LESS_TERMCAP_me=$'\e[0m'
+fi
+
+# Script directory
+scrpt_dir=/home/USERNAME/Others/Computer/Scripts
+
+# Path
+export PATH="$scrpt_dir:$scrpt_dir/bugfixes:$scrpt_dir/root:$scrpt_dir/root/backup:$scrpt_dir/root/debian:$scrpt_dir/root/gentoo:$scrpt_dir/root/arch:$scrpt_dir/root/testing:$scrpt_dir/others:$scrpt_dir/testing:$PATH"
+
+## Aliases ##
+
+# Bash Navigation/Tools
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ls='ls --color=auto --group-directories-first'  # add color, group dir
+alias lsd='ls -lAtrh'                                 # sort by date
+alias lsl='ls -lAh'                                   # long list, human-readabl
+alias lss='ls -shAxSr'                                # sort by size
+alias lsx='ls -lAhX'                                  # sort by extension
+alias c='clear'                                       # clear screen
+alias cp="cp -a"                                      # cp recursive, +perms
+alias ebash="v ~/.bashrc"
+alias sbash="source ~/.bashrc"
+
+# Shortcuts
+if [[ $(whoami) == root ]]; then
+  alias cdb="cd $scrpt_dir/root && ls -h"; else
+  alias cdb="cd $scrpt_dir && ls -h"
+fi
+alias cdd="cd ~/Desktop && ls -h"
+alias cdo="pwd | sed 's/ /\\\ /g' > ~/.cdo"   # save current dir location
+alias cdn='cd $(cat ~/.cdo)'                   # cd  to saved dir location
+alias cdt="cd ~/.local/share/Trash/files && ls -h"
+alias cdw="mount /mnt/Windows/ && cd /mnt/Windows/Documents*/USERNAME*/ && ls -h"
+alias cdW="cd ~ && umount /mnt/Windows"
+cdf () { cd "$(dirname "$(locate -i "$*" | head -n 1)")" ; } # locate then cd
+cds () { cd /mnt/sandfox/$(ls -t1 /mnt/sandfox/ | head -n 1)/home/USERNAME ; }
+
+# System
+alias chot="sudo chown -R USERNAME:USERNAME"
+alias chx="chmod +x"
+alias cron="crontab -e"
+
+# Network
+alias pn="ping -c2 www.ubuntu.com"
+
+# Programs
+alias arach="bgcmd java -jar ~/Downloads/build/Arachnophilia.jar"
+alias d="define"
+alias g="bgcmd gedit"
+alias sv="sudo vim -p"    # open in tab
+alias v="vim -p"          
+alias vi="vim"
+alias wget="wget -c"      # always try to resume download first
+alias xtract="xtract -n"  # extract files in non-gui mode
+
+## System Parameters ##
+
+# Bash Completion
+complete -W "`awk '{ print $2 }' /etc/hosts`" ssh
+complete -cf sudo
+complete -cf gksu
+complete -cf bgcmd

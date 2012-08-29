@@ -17,7 +17,7 @@ else
 fi
 function longps(){ PS1="${name_color}\u${white}:${blue}\w${NC}\$ " ; }
 function shortps(){ PS1="${name_color}\u${white}:${blue}\W${NC}\$ " ; }
-shortps
+longps
 
 [ $USER == 'root' ]	&& PS1="${red}\u${white}:${blue}\w${white}\$ "
 PS2="${NC}--> ${white}"
@@ -90,5 +90,4 @@ fi
 
 export PATH="/usr/lib/colorgcc/bin:$PATH"
 
-# RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # Load RVM into a shell session *as a function*
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

@@ -1,0 +1,16 @@
+* cleaned up the bash_aliases
+* moved functions to bash_aliases
+* added functionality to bash_aliases:
+  * cdo, cdn, cdd
+  * colored man pages 
+  * sbash
+* path in PS is no longer bold
+* fixed red root
+* longer bash history
+* other bashrc tweats ( thanks http://linuxtidbits.wordpress.com/2012/02/15/bashrc/ )
+
+
+
+*  tmux :D
+  * added tmux.conf
+  * added doc folderg
