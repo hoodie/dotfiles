@@ -24,7 +24,7 @@
 	url = git://github.com/vim-scripts/gnupg.vim
 [submodule "vim/bundle/lesscss"]
 	path = vim/bundle/lesscss
-	url = https://github.com/itspriddle/vim-lesscss
+  url = https://github.com/KohPoll/vim-less
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh
