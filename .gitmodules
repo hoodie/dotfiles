@@ -27,4 +27,7 @@
 	url = https://github.com/itspriddle/vim-lesscss
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
-	url = git@github.com:robbyrussell/oh-my-zsh
+	url = git://github.com/robbyrussell/oh-my-zsh
+[submodule "vim/bundle/surround"]
+	path = vim/bundle/surround
+	url = https://github.com/tpope/vim-surround
