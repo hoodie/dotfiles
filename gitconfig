@@ -2,8 +2,8 @@
 	name = Hendrik Sollich
 	email = Hendrik@hoodie.de
 	editor = vim
-[pack]
-  threads = 2
+[core]
+	editor = vim
 [color]
 	diff = auto
 	status = auto
@@ -12,8 +12,10 @@
   ui = auto
 [diff]
 	tool = vimdiff
-[core]
-	editor = vim
+[push]
+	default = tracking
+[pack]
+  threads = 2
 [alias]
 	unstage = reset HEAD --
 	last = log -1 HEAD
