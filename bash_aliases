@@ -46,7 +46,7 @@ alias vdir='vdir --color=auto'
 alias sbash="source ~/.bashrc"
 
 alias monoplayer="mplayer -af pan=1:0.5:0.5 -channels 1"
-alias ramdisk='[ -d ~/Desktop/ram ] || mkdir ~/Desktop/ram ] && sudo mount -t tmpfs none ~/Desktop/ram && df | grep none '
+alias ramdisk='[ -d ~/Desktop/ram ] || mkdir ~/Desktop/ram && sudo mount -t tmpfs none ~/Desktop/ram && df | grep none '
 alias serve='python2 -m SimpleHTTPServer'
 alias tmux='tmux -2'
 
@@ -87,6 +87,7 @@ function pass(){ echo -e ${WHITE}* ${NC}${white}$*${NC} ; }
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
 function wmp2ogg() { find . -iname '*wma' \( -exec ffmpeg -i {} -acodec vorbis -aq 5  {}.ogg \; \);  }
+function ogg2mp3() { find . -iname '*ogg' \( -exec ffmpeg -i {} -acodec mp3    -aq 1  {}.mp3 \; \);  }
 
 function e() {
   VIMARGS="--servername vimsrv --remote-silent"

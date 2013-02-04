@@ -7,8 +7,8 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 #
 #ZSH_THEME="robbyrussell"
-#ZSH_THEME="philips"
-ZSH_THEME="hendriks"
+ZSH_THEME="philips"
+#ZSH_THEME="hendriks"
 #ZSH_THEME="nanotech"
 #ZSH_THEME="random"
 #ZSH_THEME="nicoulaj"
