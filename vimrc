@@ -87,6 +87,7 @@
   au BufNewFile,BufRead *.c,*.cc,*.cpp,*.h,*.hh,*.js,*.java  nmap <F6> /}<CR>zf%<ESC>:nohlsearch<CR>
   au BufNewFile,BufRead *.c,*.cc,*.cpp,*.h,*.hh,*.js,*.java  setl foldmethod=marker foldmarker={,} nofoldenable 
   au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+  au BufNewFile,BufReadPost *.rb setl foldmethod=indent nofoldenable
 
 " navigation
   inoremap jj <ESC>
