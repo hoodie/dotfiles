@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/hendrik/code/coffee-chat/node_modules'
-let g:netrw_dirhist_2='/home/hendrik/code/coffee-chat/node_modules/.bin'
-let g:netrw_dirhist_3='/home/hendrik/code/coffee-chat/node_modules'
-let g:netrw_dirhist_4='/home/hendrik/code/coffee-chat'
-let g:netrw_dirhist_5='/home/hendrik/code/coffee-chat/node_modules/node-xmpp/lib/xmpp'
-let g:netrw_dirhist_6='/mnt/spare/share/GeoIP'
