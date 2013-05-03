@@ -44,6 +44,7 @@ alias lash='ls -lash'
 #alias ssh='autossh'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
+alias pc='proxychains'
 
 alias sbash="source ~/.bashrc"
 
