@@ -57,12 +57,12 @@
   if &term=~'linux' " here we only got a nongraphic terminal - no colors
     colorscheme darkdevel
   else
-    colorscheme lucius " working much with c++ lately
-    "colorscheme jellybeans
+    "colorscheme mustang" working much with c++ lately
+    colorscheme jellybeans
     "
     if has("gui_running") " everything you want from your gui
       "set guifont=Monospace\ 8
-      set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
+      set guifont=Source\ Code\ Pro\ 10
       " 'a' autoselect ( for copy and pasting )
       " 'c'	Use console dialogs instead of popup dialogs for simple choices.
       " 'm'	Menu bar is present.
