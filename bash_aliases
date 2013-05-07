@@ -24,6 +24,8 @@ lightgreen='\e[0;92m'
 LIGHTGREEN='\e[1;92m'
 
 ## Moving around & all that jazz
+alias go='kde-open'
+alias calm='cal -m'
 alias back='cd $OLDPWD'
 alias ..="cd .."
 alias ...="cd ../.."
@@ -48,6 +50,7 @@ alias sbash="source ~/.bashrc"
 alias monoplayer="mplayer -af pan=1:0.5:0.5 -channels 1"
 alias ramdisk='[ -d ~/Desktop/ram ] || mkdir ~/Desktop/ram && sudo mount -t tmpfs none ~/Desktop/ram && df | grep none '
 alias serve='python2 -m SimpleHTTPServer'
+alias suserve='sudo python2 -m SimpleHTTPServer 80'
 alias tmux='tmux -2'
 
 # a grep for every occasion
@@ -81,8 +84,8 @@ alias cron="crontab -e"
 
 # Functions
 function warn(){ echo -e ${RED}! ${NC}${red}$*${NC} ; }
-function info(){ echo -e ${BLUE}* ${NC}${blue}$*${NC} ; }
-function pass(){ echo -e ${WHITE}* ${NC}${white}$*${NC} ; }
+function info(){ echo -e ${BLUE}! ${NC}${blue}$*${NC} ; }
+function pass(){ echo -e ${WHITE}! ${NC}${white}$*${NC} ; }
 
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 

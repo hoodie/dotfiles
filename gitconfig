@@ -5,11 +5,11 @@
 [core]
 	editor = vim
 [color]
-	diff = auto
+	diff   = auto
 	status = auto
 	branch = auto
-	grep = auto 
-  ui = auto
+	grep   = auto
+  ui     = auto
 [diff]
 	tool = vimdiff
 [push]
