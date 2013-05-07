@@ -90,4 +90,4 @@ fi
 
 export PATH="/usr/lib/colorgcc/bin:$PATH"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin:$HOME/bin # Add RVM to PATH for scripting

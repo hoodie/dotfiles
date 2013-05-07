@@ -57,8 +57,8 @@
   if &term=~'linux' " here we only got a nongraphic terminal - no colors
     colorscheme darkdevel
   else
-    colorscheme lucius " working much with c++ lately
-    "colorscheme jellybeans
+    "colorscheme lucius " working much with c++ lately
+    colorscheme jellybeans
     "
     if has("gui_running") " everything you want from your gui
       "set guifont=Monospace\ 8
