@@ -1,11 +1,1 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/hendrik/code/coffee-chat/node_modules/node-xmpp/lib'
-let g:netrw_dirhist_2='/home/hendrik/code/coffee-chat/node_modules/node-xmpp/lib/xmpp'
-let g:netrw_dirhist_3='/home/hendrik/code/node-xmpp-node'
-let g:netrw_dirhist_4='/home/hendrik/code/hub/node-xmpp-Caesar/lib'
-let g:netrw_dirhist_5='/home/hendrik/code/hub/node-xmpp-Caesar/lib/xmpp'
-let g:netrw_dirhist_6='/home/hendrik/code/hub/node-xmpp-astro/lib/xmpp'
-let g:netrw_dirhist_7='/home/hendrik/code/node-xmpp/lib/xmpp'
-let g:netrw_dirhist_8='/home/hendrik/code/node-xmpp/examples'
-let g:netrw_dirhist_9='/home/hendrik/.dotfiles/.git'
