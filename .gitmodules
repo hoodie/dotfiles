@@ -43,3 +43,6 @@
 [submodule "vim/bundle/gutter"]
 	path = vim/bundle/gutter
 	url = https://github.com/airblade/vim-gitgutter
+[submodule "vim/bundle/multiple-cursors"]
+	path = vim/bundle/multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors
