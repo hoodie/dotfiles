@@ -60,7 +60,6 @@
     "colorscheme lucius " working much with c++ lately
     "colorscheme mustang" working much with c++ lately
     colorscheme jellybeans
-    "
     if has("gui_running") " everything you want from your gui
       "set guifont=Monospace\ 8
       set guifont=Source\ Code\ Pro\ 10

@@ -88,6 +88,4 @@ else
   export LESS_TERMCAP_me=$'\e[0m'
 fi
 
-
-
 PATH=$PATH:$HOME/.rvm/bin:$HOME/bin # Add RVM to PATH for scripting
