@@ -50,7 +50,8 @@ alias sbash="source ~/.bashrc"
 
 alias monoplayer="mplayer -af pan=1:0.5:0.5 -channels 1"
 alias ramdisk='[ -d ~/Desktop/ram ] || mkdir ~/Desktop/ram && sudo mount -t tmpfs none ~/Desktop/ram && df | grep none '
-alias serve='python2 -m SimpleHTTPServer'
+#alias serve='python2 -m SimpleHTTPServer'
+alias serve='python -m http.server'
 alias suserve='sudo python2 -m SimpleHTTPServer 80'
 alias tmux='tmux -2'
 
@@ -99,7 +100,7 @@ function e() {
 }
 
 # to hell with shortlinks
-function resolve(){ curl -Is $1 | sed -n 's/^Location: //p'; }
+function resolve(){ curl -Is $1 | sed -n 's/^Location: //ip'; }
 
 function color_palett(){
 for j in 3 4 9 10;
