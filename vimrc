@@ -11,7 +11,8 @@
 """" First of all
 " Pathogen loads plugins as modules
   filetype off
-  call pathogen#runtime_append_all_bundles()
+  "call pathogen#runtime_append_all_bundles()
+  call pathogen#incubate()
 
   " turns on syntax omnicomple a la ctrl+x ctrl+o
   filetype plugin on

@@ -46,3 +46,6 @@
 [submodule "vim/bundle/multiple-cursors"]
 	path = vim/bundle/multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors
+[submodule "vim/bundle/abolish"]
+	path = vim/bundle/abolish
+	url = https://github.com/tpope/vim-abolish

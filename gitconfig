@@ -21,6 +21,7 @@
 	last = log -1 HEAD
   st = status
   co = checkout
+  ci = commit
   server = daemon --reuseaddr --base-path=. --export-all --verbose --enable=receive-pack
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 [push]
