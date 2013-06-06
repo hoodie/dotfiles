@@ -18,6 +18,7 @@
   threads = 2
 [alias]
 	unstage = reset HEAD --
+  rollback = reset --hard HEAD~1
 	last = log -1 HEAD
   st = status
   co = checkout
