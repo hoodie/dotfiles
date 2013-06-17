@@ -60,15 +60,22 @@
   else
     "colorscheme lucius " working much with c++ lately
     "colorscheme mustang" working much with c++ lately
-    colorscheme jellybeans
+    "colorscheme jellybeans
+    colorscheme molokai_original
     if has("gui_running") " everything you want from your gui
-      "set guifont=Monospace\ 8
-      set guifont=Source\ Code\ Pro\ 10
+
+
+      "set guifont=Monospace\ 9
+      "set guifont=FreeMono\ 10
+      "set guifont=DejaVu\ Sans\ Mono\ 10
+      "set guifont=Source\ Code\ Pro\ 10
+      set guifont=Droid\ Sans\ Mono\ 10
+      
       " 'a' autoselect ( for copy and pasting )
       " 'c'	Use console dialogs instead of popup dialogs for simple choices.
       " 'm'	Menu bar is present.
       " 't'	Include tearoff menu items.  Currently only works for Win32, GTK+, and Motif 1.2 GUI.
-      set guioptions=caTet
+      set guioptions=acet " ace, mace, Tace, Tacet
       set mousehide
     else
       set t_Co=256
