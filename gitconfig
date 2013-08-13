@@ -24,6 +24,6 @@
   co = checkout
   ci = commit
   server = daemon --reuseaddr --base-path=. --export-all --verbose --enable=receive-pack
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(bold yellow)%d%Creset %C() %s %C(reset) ( %C(yellow)%an%Creset %C(green)%cr )' --abbrev-commit --date=relative
 [push]
 	default = matching
