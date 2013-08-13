@@ -61,15 +61,18 @@
     "colorscheme lucius " working much with c++ lately
     "colorscheme mustang" working much with c++ lately
     "colorscheme jellybeans
-    colorscheme molokai_original
+    "colorscheme molokai_original
+    "colorscheme martin_krischik
+    colorscheme Monokai
     if has("gui_running") " everything you want from your gui
 
+      let g:gitgutter_enabled = 0
 
       "set guifont=Monospace\ 9
       "set guifont=FreeMono\ 10
       "set guifont=DejaVu\ Sans\ Mono\ 10
-      "set guifont=Source\ Code\ Pro\ 10
-      set guifont=Droid\ Sans\ Mono\ 10
+      set guifont=Source\ Code\ Pro\ 9
+      "set guifont=Droid\ Sans\ Mono\ 10
       
       " 'a' autoselect ( for copy and pasting )
       " 'c'	Use console dialogs instead of popup dialogs for simple choices.
@@ -101,6 +104,8 @@
   inoremap jj <ESC>
   inoremap kk <ESC>
   set wildmenu
+  nnoremap k gk
+  nnoremap j gj
 
 " window stuff
   map <C-h> <C-w>h
