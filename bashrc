@@ -8,33 +8,24 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
-# settings prompt
+## SETTINGS PROMPT
+# RED ROOT
 if [ `whoami` == "root" ]
 then
   name_color=${RED}
 else
   name_color=${lightgreen}
 fi
+
+# PS1 comes in to flavors
 function longps(){ PS1="${name_color}\u${white}:${blue}\w${NC}\$ " ; }
 function shortps(){ PS1="${name_color}\u${white}:${blue}\W${NC}\$ " ; }
 longps
 
-[ $USER == 'root' ]	&& PS1="${red}\u${white}:${blue}\w${white}\$ "
 PS2="${NC}--> ${white}"
 
 [ -z "$PS1" ] && return
 [ -n "$TMUX" ] && export TERM=screen-256color
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
-
-if [ -f /etc/bash_completion.d ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
 
 # Editor
 export EDITOR=vim
@@ -69,25 +60,6 @@ set show-all-if-ambiguous on
 # Allow 'less' to view non-text files (allows viewing of compressed files)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
-# Less Colors for Man Pages
-if [[ ${TERM} == "xterm" ]]; then
-  export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # bold mode      - main      (cyan)
-  export LESS_TERMCAP_us=$'\e[38;5;97m'     # underline mode - second    (purp)
-  export LESS_TERMCAP_so=$'\e[01;32m' # standout-mode  - info/find (gray)
-  export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking - unused?   (red)
-  export LESS_TERMCAP_ue=$'\e[0m'           # end underline
-  export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
-  export LESS_TERMCAP_me=$'\e[0m'           # end all mode        - txt rest
-else
-  export LESS_TERMCAP_md=$'\e[01;34m'
-  export LESS_TERMCAP_us=$'\e[01;35m'
-  export LESS_TERMCAP_so=$'\e[01;30m'
-  export LESS_TERMCAP_mb=$'\e[01;31m'
-  export LESS_TERMCAP_ue=$'\e[0m'
-  export LESS_TERMCAP_se=$'\e[0m'
-  export LESS_TERMCAP_me=$'\e[0m'
-fi
-
-export PATH="/usr/lib/colorgcc/bin:$PATH"
-
-PATH=$PATH:$HOME/.rvm/bin:$HOME/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.cabal/bin
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
