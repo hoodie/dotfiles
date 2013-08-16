@@ -66,19 +66,29 @@
     colorscheme Monokai
     if has("gui_running") " everything you want from your gui
 
-      let g:gitgutter_enabled = 0
+      "" GitGutter
+      "let g:gitgutter_enabled = 0
 
+      "" Colorschemes and Fonts
       "set guifont=Monospace\ 9
       "set guifont=FreeMono\ 10
       "set guifont=DejaVu\ Sans\ Mono\ 10
       set guifont=Source\ Code\ Pro\ 9
       "set guifont=Droid\ Sans\ Mono\ 10
       
+      "" Menu
       " 'a' autoselect ( for copy and pasting )
       " 'c'	Use console dialogs instead of popup dialogs for simple choices.
       " 'm'	Menu bar is present.
       " 't'	Include tearoff menu items.  Currently only works for Win32, GTK+, and Motif 1.2 GUI.
       set guioptions=acet " ace, mace, Tace, Tacet
+
+      "" Airline
+      let g:airline_powerline_fonts = 1
+      let g:airline_detect_whitespace=0 "disabled
+      "let g:airline_detect_whitespace=2 "icon only
+      let g:airline_theme='molokai'
+
       set mousehide
     else
       set t_Co=256
@@ -117,16 +127,16 @@
   "map <C-S-k> <C-w>- "
   "map <C-S-l> <C-w>> "
  
-" Tabularize Shortcuts
-  let mapleader=','
-  if exists(":Tabularize")
-    nmap <Leader>a= :Tabularize /=<CR>
-    vmap <Leader>a= :Tabularize /=<CR>
-    nmap <Leader>a: :Tabularize /:\zs<CR>
-    vmap <Leader>a: :Tabularize /:\zs<CR>
-    nmap <Leader>a| :Tabularize /|<CR>
-    vmap <Leader>a| :Tabularize /|<CR>
-  endif
+" "Tabularize Shortcuts
+  "let mapleader=','
+  "if exists(":Tabularize")
+  "  nmap <Leader>a= :Tabularize /=<CR>
+  "  vmap <Leader>a= :Tabularize /=<CR>
+  "  nmap <Leader>a: :Tabularize /:\zs<CR>
+  "  vmap <Leader>a: :Tabularize /:\zs<CR>
+  "  nmap <Leader>a| :Tabularize /|<CR>
+  "  vmap <Leader>a| :Tabularize /|<CR>
+  "endif
 
 " easier search
   nnoremap / /\v
