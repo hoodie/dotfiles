@@ -27,6 +27,7 @@ LIGHTGREEN='\e[1;92m'
 alias go='kde-open'
 alias calm='cal -m'
 alias back='cd $OLDPWD'
+alias ascii='./ascii'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
