@@ -172,6 +172,9 @@ alias paclf="/usr/bin/pacman -Ql"		# '[l]ist [f]iles'	- list all files installed
 alias pacexpl="/usr/bin/pacman -D --asexp"	# 'mark as [expl]icit'	- mark one or more packages as explicitly installed 
 alias pacimpl="/usr/bin/pacman -D --asdep"	# 'mark as [impl]icit'	- mark one or more packages as non explicitly installed
 
+function pacnews(){
+  curl https://www.archlinux.org/feeds/packages/ --silent | xmllint --format - | sed -n 's/.*<title>\([^\<]*\).*/\1/p' | grep -e $(uname --machine) -e any | column -t -s \ 
+}
 
 # download pdfs from website
 function getslides() {
