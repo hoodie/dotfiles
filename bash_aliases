@@ -95,6 +95,22 @@ function mkcd() { mkdir -p "$@" && cd "$_"; }
 function wmp2ogg() { find . -iname '*wma' \( -exec ffmpeg -i {} -acodec vorbis -aq 5  {}.ogg \; \);  }
 function ogg2mp3() { find . -iname '*ogg' \( -exec ffmpeg -i {} -acodec mp3    -aq 1  {}.mp3 \; \);  }
 
+function trash(){
+  if [ -z "$*" ] ; then
+    echo "Usage: trash filename"
+  else
+    DATE=$( date +%F )
+    [ -d "${HOME}/.Trash/${DATE}" ] || mkdir -p ${HOME}/.Trash/${DATE}
+    for FILE in $@ ; do
+      mv "${FILE}" "${HOME}/.Trash/${DATE}"
+      echo "${FILE} trashed!"
+    done
+  fi
+}
+
+
+
+
 function e() {
   VIMARGS="--servername vimsrv --remote-silent"
   vim $VIMARGS $@;
