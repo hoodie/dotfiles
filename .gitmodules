@@ -52,3 +52,6 @@
 [submodule "vim/bundle/airline"]
 	path = vim/bundle/airline
 	url = https://github.com/bling/vim-airline
+[submodule "vim/bundle/pandoc"]
+	path = vim/bundle/pandoc
+	url = https://github.com/vim-pandoc/vim-pandoc
