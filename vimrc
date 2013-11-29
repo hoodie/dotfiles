@@ -109,6 +109,7 @@
   au BufNewFile,BufRead *.c,*.cc,*.cpp,*.h,*.hh,*.js,*.java  setl foldmethod=marker foldmarker={,} nofoldenable 
   au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
   au BufNewFile,BufReadPost *.rb setl foldmethod=indent nofoldenable
+  au BufNewFile,BufReadPost *.py setl foldmethod=indent nofoldenable
 
 " navigation
   inoremap jj <ESC>
@@ -128,7 +129,7 @@
   "map <C-S-l> <C-w>> "
  
 " "Tabularize Shortcuts
-  "let mapleader=','
+  let mapleader=','
   "if exists(":Tabularize")
   "  nmap <Leader>a= :Tabularize /=<CR>
   "  vmap <Leader>a= :Tabularize /=<CR>
@@ -162,6 +163,7 @@
   imap <F10> :call WrapToggle()<CR>
 
   map <F3> :nohl<CR>
+  noremap <silent><Leader>/ :nohls<CR>
 
 " latex stuff
   filetype plugin on
