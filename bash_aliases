@@ -27,7 +27,7 @@ LIGHTGREEN='\e[1;92m'
 alias go='kde-open'
 alias cal='cal -m'
 alias back='cd $OLDPWD'
-alias ascii='./ascii'
+alias ascii='~/ascii/invoicer/ascii'
 alias wicd='wicd-curses'
 alias ..="cd .."
 alias ...="cd ../.."
@@ -191,12 +191,17 @@ alias paclf="/usr/bin/pacman -Ql"		# '[l]ist [f]iles'	- list all files installed
 alias pacexpl="/usr/bin/pacman -D --asexp"	# 'mark as [expl]icit'	- mark one or more packages as explicitly installed 
 alias pacimpl="/usr/bin/pacman -D --asdep"	# 'mark as [impl]icit'	- mark one or more packages as non explicitly installed
 
+function rss(){
+  FEED=${@:-https://www.archlinux.org/feeds/packages/}
+  curl $FEED --silent | xmllint --format - | sed -n 's/.*<title>\([^\<]*\).*/\1/p' | grep -e $(uname --machine) -e any | column -t -s \ 
+}
 function pacnews(){
   curl https://www.archlinux.org/feeds/packages/ --silent | xmllint --format - | sed -n 's/.*<title>\([^\<]*\).*/\1/p' | grep -e $(uname --machine) -e any | column -t -s \ 
 }
 
 function archnews(){
-	echo -e "$(echo $(curl --silent https://www.archlinux.org/feeds/news/ | sed -e ':a;N;$!ba;s/\n/ /g') | \
+  FEED=${@:-https://www.archlinux.org/feeds/news/}
+	echo -e "$(echo $(curl --silent $FEED | sed -e ':a;N;$!ba;s/\n/ /g') | \
 		sed -e 's/&amp;/\&/g
 		s/&lt;\|&#60;/</g
 		s/&gt;\|&#62;/>/g

@@ -73,7 +73,7 @@
       "set guifont=Monospace\ 9
       "set guifont=FreeMono\ 10
       "set guifont=DejaVu\ Sans\ Mono\ 10
-      set guifont=Source\ Code\ Pro\ 9
+      set guifont=Source\ Code\ Pro\ 10
       "set guifont=Droid\ Sans\ Mono\ 10
       
       "" Menu
@@ -81,7 +81,7 @@
       " 'c'	Use console dialogs instead of popup dialogs for simple choices.
       " 'm'	Menu bar is present.
       " 't'	Include tearoff menu items.  Currently only works for Win32, GTK+, and Motif 1.2 GUI.
-      set guioptions=acet " ace, mace, Tace, Tacet
+      set guioptions=Tamec " ace, mace, Tace, Tacet
 
       "" Airline
       let g:airline_powerline_fonts = 1
@@ -100,7 +100,7 @@
   au BufRead,BufNewFile *.py,*.pyw    set shiftwidth=2 tabstop=2 smarttab expandtab softtabstop=2 listchars=tab:>.,trail:.,extends:#,nbsp:.
   au BufRead,BufNewFile .vimrc,vimrc  set shiftwidth=2 tabstop=2 smarttab expandtab softtabstop=2
   au BufRead,BufNewFile *.css         set shiftwidth=4 tabstop=4 smarttab expandtab softtabstop=4 listchars=tab:>.,trail:.,extends:#,nbsp:.
-  au BufRead,BufNewFile *.js          set shiftwidth=2 tabstop=4 smarttab expandtab softtabstop=4
+  au BufRead,BufNewFile *.js,*.java   set shiftwidth=2 tabstop=4 smarttab expandtab softtabstop=4
   au BufRead,BufNewFile *.coffee      set shiftwidth=2 tabstop=2 smarttab expandtab softtabstop=2 listchars=tab:>.,trail:.,extends:#,nbsp:.
   au BufNewFile,BufRead *.as          set filetype=actionscript
 

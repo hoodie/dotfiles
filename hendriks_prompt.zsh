@@ -26,9 +26,13 @@
 #     In fact, this tag forces Zsh to ignore anything inside them when making indents for the prompt as well. 
 #     As such, not to use it can have some weird effects on the margins and indentation of the prompt. 
 #   
-if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="green"; fi
-
+if [ $UID -eq 0 ];
+then NCOLOR="red";
 PROMPT='%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:%{$fg[blue]%}%B%c/%b%{$reset_color%} %(!.#.$) '
+else NCOLOR="green";
+PROMPT='%{$fg[blue]%}%B%~/%b%{$reset_color%} %(!.#.$) '
+fi
+
 if [ -n "$SSH_TTY" ]; then
 PROMPT='%{$fg[$NCOLOR]%}%B%n%b@%m%b%{$reset_color%}:%{$fg[blue]%}%B%c/%b%{$reset_color%} %(!.#.$) ' ;
 fi
