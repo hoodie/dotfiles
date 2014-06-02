@@ -53,3 +53,4 @@ source ~/.dotfiles/hendriks_prompt.zsh
 PATH=$PATH:$HOME/.cabal/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+eval $(ssh-agent) >> /dev/null

@@ -60,10 +60,10 @@
   else
     "colorscheme lucius " working much with c++ lately
     "colorscheme mustang" working much with c++ lately
-    "colorscheme jellybeans
+    colorscheme jellybeans
     "colorscheme molokai_original
     "colorscheme martin_krischik
-    colorscheme Monokai
+    "colorscheme Monokai
     if has("gui_running") " everything you want from your gui
 
       "" GitGutter
@@ -73,7 +73,7 @@
       "set guifont=Monospace\ 9
       "set guifont=FreeMono\ 10
       "set guifont=DejaVu\ Sans\ Mono\ 10
-      set guifont=Source\ Code\ Pro\ 10
+      set guifont=Source\ Code\ Pro\ 9
       "set guifont=Droid\ Sans\ Mono\ 10
       
       "" Menu
