@@ -73,7 +73,7 @@
       "set guifont=Monospace\ 9
       "set guifont=FreeMono\ 10
       "set guifont=DejaVu\ Sans\ Mono\ 10
-      set guifont=Source\ Code\ Pro\ 9
+      set guifont=Source\ Code\ Pro\ 8
       "set guifont=Droid\ Sans\ Mono\ 10
       
       "" Menu
@@ -81,12 +81,13 @@
       " 'c'	Use console dialogs instead of popup dialogs for simple choices.
       " 'm'	Menu bar is present.
       " 't'	Include tearoff menu items.  Currently only works for Win32, GTK+, and Motif 1.2 GUI.
-      set guioptions=Tamec " ace, mace, Tace, Tacet
+      set guioptions=Taec " ace, mace, Tace, Tacet
 
       "" Airline
       let g:airline_powerline_fonts = 1
       let g:airline_detect_whitespace=0 "disabled
       "let g:airline_detect_whitespace=2 "icon only
+      let g:airline_theme='jellybeans'
       let g:airline_theme='molokai'
 
       set mousehide
@@ -97,7 +98,7 @@
   endif
 
 " Formating helpers
-  au BufRead,BufNewFile *.py,*.pyw    set shiftwidth=2 tabstop=2 smarttab expandtab softtabstop=2 listchars=tab:>.,trail:.,extends:#,nbsp:.
+  au BufRead,BufNewFile *.py,*.pyw    set shiftwidth=4 tabstop=4 smarttab expandtab softtabstop=4 listchars=tab:>.,trail:.,extends:#,nbsp:.
   au BufRead,BufNewFile .vimrc,vimrc  set shiftwidth=2 tabstop=2 smarttab expandtab softtabstop=2
   au BufRead,BufNewFile *.css         set shiftwidth=4 tabstop=4 smarttab expandtab softtabstop=4 listchars=tab:>.,trail:.,extends:#,nbsp:.
   au BufRead,BufNewFile *.js,*.java   set shiftwidth=2 tabstop=4 smarttab expandtab softtabstop=4
@@ -110,6 +111,28 @@
   au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
   au BufNewFile,BufReadPost *.rb setl foldmethod=indent nofoldenable
   au BufNewFile,BufReadPost *.py setl foldmethod=indent nofoldenable
+  au BufNewFile,BufReadPost *.yml setl foldmethod=indent nofoldenable
+  
+  " writing
+  au Filetype markdown setlocal spell
+  au Filetype markdown setlocal wrap
+  au Filetype markdown setlocal linebreak
+  au Filetype markdown setlocal nolist
+  au Filetype markdown setlocal columns=80
+  au Filetype markdown setlocal mousemodel=popup
+
+
+" Spell checking  --- 
+"if version >= 700
+"  hi clear SpellBad
+"  hi clear SpellCap
+"  hi clear SpellRare
+"  hi clear SpellLocal
+"  hi SpellBad    ctermfg=9
+"  hi SpellCap    ctermfg=3    cterm=underline
+"  hi SpellRare   ctermfg=13   cterm=underline
+"  hi SpellLocal  cterm=None
+"endif
 
 " navigation
   inoremap jj <ESC>
