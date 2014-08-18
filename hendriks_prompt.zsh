@@ -28,13 +28,13 @@
 #   
 if [ $UID -eq 0 ];
 then NCOLOR="red";
-PROMPT='%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:%{$fg[blue]%}%B%c/%b%{$reset_color%} %(!.#.$) '
+PROMPT='%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:%{$fg[blue]%}%B%c/%b%{$reset_color%} %(!.#.§) '
 else NCOLOR="green";
-PROMPT='%{$fg[blue]%}%B%~/%b%{$reset_color%} %(!.#.$) '
+PROMPT='%{$fg[blue]%}%B%~/%b%{$reset_color%} %(!.#.§) '
 fi
 
 if [ -n "$SSH_TTY" ]; then
-PROMPT='%{$fg[$NCOLOR]%}%B%n%b@%m%b%{$reset_color%}:%{$fg[blue]%}%B%c/%b%{$reset_color%} %(!.#.$) ' ;
+PROMPT='%{$fg[$NCOLOR]%}%B%n%b@%m%b%{$reset_color%}:%{$fg[blue]%}%B%c/%b%{$reset_color%} %(!.#.§) ' ;
 fi
 RPROMPT='$(git_prompt_info)[%*]'
 
