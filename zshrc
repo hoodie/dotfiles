@@ -49,6 +49,7 @@ export VISUAL=vim                           # for crontab
 
 source ~/.dotfiles/hendriks_prompt.zsh
 
+setopt interactivecomments
 
 PATH=$PATH:$HOME/.cabal/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
