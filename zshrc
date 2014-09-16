@@ -1,56 +1,53 @@
+
+## oh-my-zsh stuff
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-#
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="philips"
-#ZSH_THEME="hendriks"
-#ZSH_THEME="nanotech"
-#ZSH_THEME="random"
-#ZSH_THEME="nicoulaj"
-
-# Example aliases
-alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git archlinux nyan)
-
+plugins=( git git-extras archlinux kate cabal systemd coffee)
 source $ZSH/oh-my-zsh.sh
-source ~/.bash_aliases
 
-# Customize to your needs...
+
 
 # Editor
 export EDITOR=vim
 export FCEDIT=vim
 export VISUAL=vim                           # for crontab
 
+# aliases
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+source ~/.bash_aliases
+
+
+# Uncomment following line if you want to disable autosetting terminal title.
+DISABLE_AUTO_TITLE="true"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+compinit
+autoload -Uz compinit
+COMPLETION_WAITING_DOTS="true"
+
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/hendrik/.zshrc'
+
+
+# theme
 source ~/.dotfiles/hendriks_prompt.zsh
 
+# bashstyle comments
 setopt interactivecomments
 
+
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=1000
+setopt appendhistory autocd extendedglob nomatch notify
+unsetopt beep
+bindkey -e
+# End of lines configured by zsh-newuser-install
+
+#PATHS
 PATH=$PATH:$HOME/.cabal/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

@@ -23,7 +23,7 @@
   "  autocmd bufwritepost .vimrc source $MYVIMRC
   "endif
 
-" basics
+" basics {{{
   syntax on
   set number                           " show line numbers
   set ruler                            " current line number on status bar
@@ -42,28 +42,30 @@
   "set statusline=%f%m%r%h%w\ %L\ %y\ [%p%%][%04l,%04v]
 	set statusline=%<%f\ %y\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ %nb
   set laststatus=2
+  "}}}
 
-  "set cpoptions=eA
-  "set lazyredraw                      " not always useful
-  "set list
+  " disabled {{{
+    "set cpoptions=eA
+    "set lazyredraw                      " not always useful
+    "set list
 
-" highlighting
-  highlight Comment guifg=Orange
-  highlight CursorLine guibg=Black
+  " highlighting
+    "highlight Comment guifg=Orange
+    "highlight CursorLine guibg=Black
+ "}}}
 
-  " magic indent plugin for many languages
-  filetype indent plugin on
-
-  " gvim features in vim
+  " gui and color settings {{{
   if &term=~'linux' " here we only got a nongraphic terminal - no colors
-    colorscheme darkdevel
+    colorscheme default
   else
     "colorscheme lucius " working much with c++ lately
     "colorscheme mustang" working much with c++ lately
     colorscheme jellybeans
     "colorscheme molokai_original
+    "colorscheme summerfruit256
     "colorscheme martin_krischik
     "colorscheme Monokai
+    
     if has("gui_running") " everything you want from your gui
 
       "" GitGutter
@@ -73,8 +75,10 @@
       "set guifont=Monospace\ 9
       "set guifont=FreeMono\ 10
       "set guifont=DejaVu\ Sans\ Mono\ 10
-      set guifont=Source\ Code\ Pro\ 8
+      set guifont=Source\ Code\ Pro\ 10
       "set guifont=Droid\ Sans\ Mono\ 10
+      "colorscheme distinguished
+      colorscheme eddie
       
       "" Menu
       " 'a' autoselect ( for copy and pasting )
@@ -96,8 +100,12 @@
       set mouse=a
     endif
   endif
+  " }}}
 
-" Formating helpers
+  " magic indent plugin for many languages
+  filetype indent plugin on
+
+" Formating helpers {{{
   au BufRead,BufNewFile *.py,*.pyw    set shiftwidth=4 tabstop=4 smarttab expandtab softtabstop=4 listchars=tab:>.,trail:.,extends:#,nbsp:.
   au BufRead,BufNewFile .vimrc,vimrc  set shiftwidth=2 tabstop=2 smarttab expandtab softtabstop=2
   au BufRead,BufNewFile *.css         set shiftwidth=4 tabstop=4 smarttab expandtab softtabstop=4 listchars=tab:>.,trail:.,extends:#,nbsp:.
@@ -105,24 +113,38 @@
   au BufRead,BufNewFile *.coffee      set shiftwidth=2 tabstop=2 smarttab expandtab softtabstop=2 listchars=tab:>.,trail:.,extends:#,nbsp:.
   au BufNewFile,BufRead *.as          set filetype=actionscript
 
-" folding
+  au Filetype cpp set shiftwidth=2 tabstop=2 smarttab expandtab softtabstop=2
+" }}}
+
+" folding {{{
   au BufNewFile,BufRead *.c,*.cc,*.cpp,*.h,*.hh,*.js,*.java  nmap <F6> /}<CR>zf%<ESC>:nohlsearch<CR>
   au BufNewFile,BufRead *.c,*.cc,*.cpp,*.h,*.hh,*.js,*.java  setl foldmethod=marker foldmarker={,} nofoldenable 
-  au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
-  au BufNewFile,BufReadPost *.rb setl foldmethod=indent nofoldenable
-  au BufNewFile,BufReadPost *.py setl foldmethod=indent nofoldenable
-  au BufNewFile,BufReadPost *.yml setl foldmethod=indent nofoldenable
-  
-  " writing
+  au BufNewFile,BufReadPost *.coffee  setl foldmethod=indent foldenable
+  au BufNewFile,BufReadPost *.rb      setl foldmethod=indent foldenable
+  au BufNewFile,BufReadPost *.py      setl foldmethod=indent foldenable
+  au BufNewFile,BufReadPost *.yml     setl foldmethod=indent foldenable
+  au Filetype vim set foldmethod=marker
+  " }}}
+
+" Taglist {{{
+  let Tlist_Compact_Format = 0
+  let Tlist_GainFocus_On_ToggleOpen = 1
+  let Tlist_Close_On_Select = 0
+  let Tlist_WinWidth = 38
+	nnoremap <silent> <F9> :TlistToggle<CR>
+  "}}}
+
+  " Markdown {{{
   au Filetype markdown setlocal spell
   au Filetype markdown setlocal wrap
   au Filetype markdown setlocal linebreak
   au Filetype markdown setlocal nolist
   au Filetype markdown setlocal columns=80
   au Filetype markdown setlocal mousemodel=popup
+  " }}}
 
 
-" Spell checking  --- 
+" Spell checking   {{{
 "if version >= 700
 "  hi clear SpellBad
 "  hi clear SpellCap
@@ -132,16 +154,18 @@
 "  hi SpellCap    ctermfg=3    cterm=underline
 "  hi SpellRare   ctermfg=13   cterm=underline
 "  hi SpellLocal  cterm=None
-"endif
+"endif 
+"}}}
 
-" navigation
+" navigation {{{
   inoremap jj <ESC>
   inoremap kk <ESC>
   set wildmenu
   nnoremap k gk
   nnoremap j gj
+  " }}}
 
-" window stuff
+" window stuff {{{
   map <C-h> <C-w>h
   map <C-j> <C-w>j
   map <C-k> <C-w>k
@@ -150,6 +174,7 @@
   "map <C-S-j> <C-w>+ "
   "map <C-S-k> <C-w>- "
   "map <C-S-l> <C-w>> "
+  "" }}}
  
 " "Tabularize Shortcuts
   let mapleader=','
@@ -187,6 +212,9 @@
 
   map <F3> :nohl<CR>
   noremap <silent><Leader>/ :nohls<CR>
+
+  map <F4> :call Switch_h_cpp()<CR>
+  map <F8> :make -j4 <CR>
 
 " latex stuff
   filetype plugin on

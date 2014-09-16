@@ -15,7 +15,7 @@
 [push]
 	default = tracking
 [pack]
-  threads = 2
+  threads = 3
 [alias]
 	unstage = reset HEAD --
   rollback = reset --hard HEAD~1

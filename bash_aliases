@@ -49,7 +49,6 @@ alias vdir='vdir --color=auto'
 alias pc='proxychains'
 alias kindlefy="mogrify -colorspace Gray -rotate '-90>' -resize 600x800 -dither FloydSteinberg -colors 16 -format png"
 
-
 alias sbash="source ~/.bashrc"
 
 alias monoplayer="mplayer -af pan=1:0.5:0.5 -channels 1"
