@@ -2,7 +2,7 @@
 ## oh-my-zsh stuff
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-plugins=( git git-extras archlinux kate cabal systemd coffee)
+plugins=( git git-extras gitfast compleat archlinux kate cabal systemd coffee)
 source $ZSH/oh-my-zsh.sh
 
 
@@ -50,5 +50,8 @@ bindkey -e
 #PATHS
 PATH=$PATH:$HOME/.cabal/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export AVG_PATH=/home/hendrik/code/hub
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 eval $(ssh-agent) >> /dev/null

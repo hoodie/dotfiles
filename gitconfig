@@ -1,6 +1,6 @@
 [user]
 	name = Hendrik Sollich
-	email = Hendrik@hoodie.de
+	email = hendrik@hoodie.de
 	editor = vim
 [core]
 	editor = vim
@@ -25,5 +25,8 @@
   ci = commit
   server = daemon --reuseaddr --base-path=. --export-all --verbose --enable=receive-pack
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(bold yellow)%d%Creset %C() %s %C(reset) ( %C(yellow)%an%Creset %C(green)%cr )' --abbrev-commit --date=relative
+	tree = log --graph --full-history --all --color --date=short --pretty=format:\"%Cred%x09%h %Creset%ad%Cblue%d %Creset %s %C(bold)(%an)%Creset\"
 [push]
 	default = matching
+[url "git@github.com:"]
+  insteadOf = "github:"

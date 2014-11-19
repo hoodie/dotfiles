@@ -24,10 +24,10 @@ lightgreen='\e[0;92m'
 LIGHTGREEN='\e[1;92m'
 
 ## Moving around & all that jazz
-alias go='kde-open'
+alias go='xdg-open'
 alias cal='cal -m'
 alias back='cd $OLDPWD'
-alias ascii='~/ascii/invoicer/ascii'
+#alias ascii='~/code/ascii-invoicer/src/bin/ascii'
 alias wicd='wicd-curses'
 alias ..="cd .."
 alias ...="cd ../.."
@@ -50,6 +50,7 @@ alias pc='proxychains'
 alias kindlefy="mogrify -colorspace Gray -rotate '-90>' -resize 600x800 -dither FloydSteinberg -colors 16 -format png"
 
 alias sbash="source ~/.bashrc"
+alias histedit="vim ~/.zsh_history" 
 
 alias monoplayer="mplayer -af pan=1:0.5:0.5 -channels 1"
 alias ramdisk='[ -d ~/Desktop/ram ] || mkdir ~/Desktop/ram && sudo mount -t tmpfs none ~/Desktop/ram && df | grep none '
@@ -180,6 +181,7 @@ function cmdfu(){
 ## Pacman aliases ## {{{
 #if necessary, replace 'pacman' with your favorite AUR helper and adapt the commands accordingly
 alias pac="sudo /usr/bin/pacman -S"		# default action	- install one or more packages
+alias pacin="sudo /usr/bin/pacman -S"		# default action	- install one or more packages
 alias pacu="sudo /usr/bin/pacman -Syu"		# '[u]pdate'		- upgrade all packages to their newest version
 alias pacr="sudo /usr/bin/pacman -Rs"		# '[r]emove'		- uninstall one or more packages
 alias pacs="/usr/bin/pacman -Ss"		# '[s]earch'		- search for a package using one or more keywords

@@ -58,13 +58,15 @@
   if &term=~'linux' " here we only got a nongraphic terminal - no colors
     colorscheme default
   else
-    "colorscheme lucius " working much with c++ lately
-    "colorscheme mustang" working much with c++ lately
-    colorscheme jellybeans
-    "colorscheme molokai_original
-    "colorscheme summerfruit256
-    "colorscheme martin_krischik
     "colorscheme Monokai
+    "colorscheme jellybeans
+    "colorscheme lucius " working much with c++ lately
+    "colorscheme martin_krischik
+    "colorscheme molokai_original
+    "colorscheme mustang" working much with c++ lately
+    "colorscheme summerfruit256
+    "colorscheme eddie
+    colorscheme Tomorrow-Night
     
     if has("gui_running") " everything you want from your gui
 
@@ -75,7 +77,7 @@
       "set guifont=Monospace\ 9
       "set guifont=FreeMono\ 10
       "set guifont=DejaVu\ Sans\ Mono\ 10
-      set guifont=Source\ Code\ Pro\ 10
+      set guifont=Source\ Code\ Pro\ 9
       "set guifont=Droid\ Sans\ Mono\ 10
       "colorscheme distinguished
       colorscheme eddie
@@ -128,19 +130,25 @@
 
 " Taglist {{{
   let Tlist_Compact_Format = 0
+  let Tlist_Display_Tag_Scope = 1
+  let Tlist_Show_One_File = 1
+  let Tlist_Auto_Update = 1
   let Tlist_GainFocus_On_ToggleOpen = 1
-  let Tlist_Close_On_Select = 0
-  let Tlist_WinWidth = 38
+  let Tist_Close_On_Select = 0
+  let Tlist_WinWidth = 40
 	nnoremap <silent> <F9> :TlistToggle<CR>
+	nnoremap <silent> <S-F9> :TlistUpdate<CR>
   "}}}
 
   " Markdown {{{
-  au Filetype markdown setlocal spell
-  au Filetype markdown setlocal wrap
-  au Filetype markdown setlocal linebreak
-  au Filetype markdown setlocal nolist
-  au Filetype markdown setlocal columns=80
-  au Filetype markdown setlocal mousemodel=popup
+  au Filetype pandoc setlocal spell
+  au Filetype pandoc setlocal wrap
+  au Filetype pandoc setlocal linebreak
+  au Filetype pandoc setlocal nolist
+  au Filetype pandoc setlocal columns=80
+  au Filetype pandoc setlocal mousemodel=popup
+  au Filetype pandoc setlocal foldcolumn=0
+  au Filetype pandoc setlocal nonumber
   " }}}
 
 
@@ -211,6 +219,7 @@
   imap <F10> :call WrapToggle()<CR>
 
   map <F3> :nohl<CR>
+  map <F11> :set fullscreen!<CR>
   noremap <silent><Leader>/ :nohls<CR>
 
   map <F4> :call Switch_h_cpp()<CR>
