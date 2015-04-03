@@ -16,10 +16,12 @@
 	default = tracking
 [pack]
   threads = 3
+[gc]
+	reflogExpire = never
 [alias]
 	unstage = reset HEAD --
   rollback = reset --hard HEAD~1
-	last = log -1 HEAD
+	last = log -1 HEAD --oneline --decorate
   st = status
   co = checkout
   ci = commit

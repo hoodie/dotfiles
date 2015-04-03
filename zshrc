@@ -40,8 +40,8 @@ setopt interactivecomments
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=1000
+HISTSIZE=1000000
+SAVEHIST=$HISTSIZE
 setopt appendhistory autocd extendedglob nomatch notify
 unsetopt beep
 bindkey -e

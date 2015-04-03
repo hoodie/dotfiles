@@ -1,8 +1,6 @@
 #!/bin/bash
 
-test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-
-#colors
+# Colors
      NC='\033[0m'      # no color
     red='\e[0;31m'
     RED='\e[1;31m'
@@ -23,41 +21,74 @@ MAGENTA='\e[1;35m'
 lightgreen='\e[0;92m'
 LIGHTGREEN='\e[1;92m'
 
+# notifications
+function warn(){ echo -e ${RED}! ${NC}${red}$*${NC} ; }
+function info(){ echo -e ${BLUE}! ${NC}${blue}$*${NC} ; }
+function pass(){ echo -e ${WHITE}! ${NC}${white}$*${NC} ; }
+
+
 ## Moving around & all that jazz
-alias go='xdg-open'
-alias cal='cal -m'
 alias back='cd $OLDPWD'
-#alias ascii='~/code/ascii-invoicer/src/bin/ascii'
-alias wicd='wicd-curses'
 alias ..="cd .."
 alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
 alias cd..="cd .." #work around a common typo
 alias cdd="cd ~/Desktop && ls -h"
 alias cds="pwd  > ~/.cdo"   # save current dir location
 alias cdo='cat ~/.cdo; cd "$(cat ~/.cdo)"'                   # cd  to saved dir location
 function cdl(){ cd $1; ls ;}
+function mkcd() { mkdir -p "$@" && cd "$_"; }
+
+# listing
 alias l='ls'
 alias lsd='ls -d */'
 alias ls='ls --color=auto --group-directories-first'
 alias lash='ls -lash'
-#alias ssh='autossh'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-alias pc='proxychains'
-alias kindlefy="mogrify -colorspace Gray -rotate '-90>' -resize 600x800 -dither FloydSteinberg -colors 16 -format png"
 
-alias sbash="source ~/.bashrc"
+# Vim
+alias sv="sudo vim -p"    # open in tab
+alias v="vim -p"          
+alias vi="vim"
+alias :e=vim
+alias :q="echo \"CAREFULL, this is not vim\""
+
+
+# Git
+alias svnpull='git svn rebase'
+alias svnpush='git svn rebase ; git svn dcommit'
+alias pull="git pull"
+alias push="git push"
+alias commit="git commit"
+
+
+# System
+alias chot="sudo chown -R"
+alias chx="chmod +x"
+alias cron="crontab -e"
+alias du="du -h"
+alias df="df -h"
+
+# Misc Tools
+alias cal='cal -m'
 alias histedit="vim ~/.zsh_history" 
-
+alias kindlefy="mogrify -colorspace Gray -rotate '-90>' -resize 600x800 -dither FloydSteinberg -colors 16 -format png"
 alias monoplayer="mplayer -af pan=1:0.5:0.5 -channels 1"
+alias open='xdg-open'
 alias ramdisk='[ -d ~/Desktop/ram ] || mkdir ~/Desktop/ram && sudo mount -t tmpfs none ~/Desktop/ram && df | grep none '
-#alias serve='python2 -m SimpleHTTPServer'
+alias sbash="source ~/.bashrc"
+alias serve2='python2 -m SimpleHTTPServer'
 alias serve='python -m http.server'
 alias suserve='sudo python2 -m SimpleHTTPServer 80'
+alias vcat='mencoder -oac copy -ovc copy -o'
+alias wicd='wicd-curses'
+alias sudi='sudo -i'
+
+# Tmux
 alias tmux='tmux -2'
+alias tls='tmux ls'
+alias td='tmux detach'
+alias tnew='new-tmux-from-dir-name'
+function new-tmux-from-dir-name { tmux new-session -As  `basename $PWD`; }
+
 
 # a grep for every occasion
 alias grep='grep --color=auto'
@@ -68,32 +99,6 @@ alias cgr='find . -iname \*.c | grep -v .svn | xargs grep -Isn --color=auto'
 alias hgr='find . -iname \*.h | grep -v .svn | xargs grep -Isn --color=auto'
 alias grepmail="grep -Eio '\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b'"
 
-alias du="du -h"
-alias df="df -h"
-
-alias sv="sudo vim -p"    # open in tab
-alias v="vim -p"          
-alias vi="vim"
-alias :e=vim
-alias :q="echo \"CAREFULL, this is not vim\""
-alias sudi='sudo -i'
-alias vcat='mencoder -oac copy -ovc copy -o'
-alias pwdend='pwd | awk -F"/" "{print \$NF}"'
-alias svnpull='git svn rebase'
-alias svnpush='git svn rebase ; git svn dcommit'
-
-
-# System
-alias chot="sudo chown -R"
-alias chx="chmod +x"
-alias cron="crontab -e"
-
-# Functions
-function warn(){ echo -e ${RED}! ${NC}${red}$*${NC} ; }
-function info(){ echo -e ${BLUE}! ${NC}${blue}$*${NC} ; }
-function pass(){ echo -e ${WHITE}! ${NC}${white}$*${NC} ; }
-
-function mkcd() { mkdir -p "$@" && cd "$_"; }
 
 function wmp2ogg() { find . -iname '*wma' \( -exec ffmpeg -i {} -acodec vorbis -aq 5  {}.ogg \; \);  }
 function ogg2mp3() { find . -iname '*ogg' \( -exec ffmpeg -i {} -acodec mp3    -aq 1  {}.mp3 \; \);  }
