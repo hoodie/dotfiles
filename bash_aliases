@@ -98,6 +98,7 @@ alias gr='find . | grep -v .svn | xargs grep -Isn --color=auto'
 alias cgr='find . -iname \*.c | grep -v .svn | xargs grep -Isn --color=auto'
 alias hgr='find . -iname \*.h | grep -v .svn | xargs grep -Isn --color=auto'
 alias grepmail="grep -Eio '\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b'"
+alias zgrepmail="zgrep -Eio '\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b'"
 
 
 function wmp2ogg() { find . -iname '*wma' \( -exec ffmpeg -i {} -acodec vorbis -aq 5  {}.ogg \; \);  }
