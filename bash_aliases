@@ -46,6 +46,7 @@ alias lash='ls -lash'
 
 # Vim
 alias sv="sudo vim -p"    # open in tab
+alias please="sudo !!"
 alias v="vim -p"          
 alias vi="vim"
 alias :e=vim
