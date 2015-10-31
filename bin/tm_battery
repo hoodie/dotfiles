@@ -17,6 +17,16 @@ __load()
   fi
 }
 
+
+__charging(){
+  local fgcolor="#[fg=#${colors[$(($n))]}]"
+  local symbol="☢"
+  if [ $(cat /sys/class/power_supply/ADP1/online) == "1" ]
+  then
+    echo -n "#[fg=#55ff55]$symbol#[default]"
+  fi
+}
+
 __battery()
 {
 if [ -f /usr/bin/acpi ] 
@@ -29,4 +39,5 @@ then
 fi
 }
 
+__charging
 __battery
