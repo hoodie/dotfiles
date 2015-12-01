@@ -2,7 +2,7 @@
 ## oh-my-zsh stuff
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-plugins=( git git-extras gitfast compleat archlinux kate cabal systemd coffee rails)
+plugins=( git git-extras gitfast compleat archlinux kate cabal systemd coffee rails cargo rust) 
 source $ZSH/oh-my-zsh.sh
 
 
@@ -48,12 +48,22 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 
 #PATHS
-PATH=$PATH:$HOME/.cabal/bin
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+CARGO_PATH=$HOME/.multirust/toolchains/nightly/cargo/bin
+CABAL_PATH=$HOME/.cabal/bin
+RVM_PATH=$HOME/.rvm/bin # Add RVM to PATH for scripting
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+#PATH=$PATH:$CARGO_PATH:$CABAL_PATH:$RVM_PATH
+PATH=$PATH:$CARGO_PATH:$CABAL_PATH
+
 
 export AVG_PATH=/home/hendrik/code/hub
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-envoy id_rsa
-source <(envoy -p)
+export RUST_SRC_PATH=$HOME/code/rust/packages/rust/src
+export RUST_BACKTRACE=0
+#export L4RE_BUILD_PATH=$HOME/TUD/Diplomarbeit/OS/l4re/build
+#export FIASCO_BUILD_PATH=$HOME/TUD/Diplomarbeit/OS/TUDOS/src/kernel/fiasco/mybuild
+
+#envoy id_rsa
+#source <(envoy -p)
 

@@ -32,17 +32,27 @@ alias back='cd $OLDPWD'
 alias ..="cd .."
 alias ...="cd ../.."
 alias cd..="cd .." #work around a common typo
-alias cdd="cd ~/Desktop && ls -h"
+alias cdd="cd ~/Desktop && ls"
 alias cds="pwd  > ~/.cdo"   # save current dir location
 alias cdo='cat ~/.cdo; cd "$(cat ~/.cdo)"'                   # cd  to saved dir location
 function cdl(){ cd $1; ls ;}
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
+function open() {
+  if [ "$#" -eq 0 ];then
+    xdg-open .
+  else
+    xdg-open "$@"
+  fi
+}
+
 # listing
 alias l='ls'
 alias lsd='ls -d */'
 alias ls='ls --color=auto --group-directories-first'
-alias lash='ls -lash'
+#alias lash='ls -lash'
+alias ls="exa --group-directories-first"
+alias la="ls -a"
 
 # Vim
 alias sv="sudo vim -p"    # open in tab
@@ -73,7 +83,6 @@ alias cal='cal -m'
 alias histedit="vim ~/.zsh_history" 
 alias kindlefy="mogrify -colorspace Gray -rotate '-90>' -resize 600x800 -dither FloydSteinberg -colors 16 -format png"
 alias monoplayer="mplayer -af pan=1:0.5:0.5 -channels 1"
-alias open='xdg-open'
 alias ramdisk='[ -d ~/Desktop/ram ] || mkdir ~/Desktop/ram && sudo mount -t tmpfs none ~/Desktop/ram && df | grep none '
 alias sbash="source ~/.bashrc"
 alias serve2='python2 -m SimpleHTTPServer'
