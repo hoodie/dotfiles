@@ -28,37 +28,57 @@
 #     As such, not to use it can have some weird effects on the margins and indentation of the prompt.
 #
 
-#local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
-local RET_STATUS="%(?::%{$fg_bold[red]%}● %s)"
-local DIR_COLOR="%{$fg[blue]%}"
-local DIR="%c" # %~ or %c or %d
-local BATTERY=$( cat /sys/class/power_supply/BAT0/capacity )
+local BATTERY="/sys/class/power_supply/BAT0/capacity"
 
+prompt_start() {
+  echo -n "%(?::%{$fg_bold[red]%}● %s)"
+  echo -n '%{$reset_color%}'
+}
 
-if [ $UID -eq 0 ];
-then NCOLOR="red";
-PROMPT='\
-%{$fg[$NCOLOR]%}%B%n%b\
-%{$reset_color%}:\
-%{$fg[blue]%}\
-%B$DIR/%b%{$reset_color%} %(!.#.§) '
-else NCOLOR="green";
-PROMPT='$RET_STATUS\
-$DIR_COLOR\
-%B$DIR/ %b\
-%{$reset_color%}\
-%(!.#.§) '
-fi
+prompt_user() {
+  if [ $UID -eq 0 ]
+  then; echo -n '%{$fg[red]%}'
+  else; echo -n '%{$fg[green]%}'
+  fi
 
-if [ -n "$SSH_TTY" ]; then
-PROMPT='%{$fg[$NCOLOR]%}%B%n%b@%m%b%{$reset_color%}:%{$fg[blue]%}%B%c/%b%{$reset_color%} %(!.#.§) ' ;
-fi
+  if [ -n "$SSH_TTY" ] || [ $UID -eq 0 ]; then
+    echo -n '%B%n%b'
+    echo -n '%{$reset_color%}'
+  fi
+
+  if [ -n "$SSH_TTY" ]; then
+    echo -n '@%m%b%{$reset_color%}'
+    echo -n '%{$reset_color%}:'
+  fi
+}
+
+prompt_dir() {
+  # %~ or %c or %d
+  echo -n '%{$fg[blue]%}%B%c/%b%{$reset_color%} '
+}
+
+prompt_end() {
+  echo -n '%(!.#.§) '
+}
+
+prompt_default() {
+  prompt_start
+  prompt_user
+  prompt_dir
+  prompt_end
+}
+
+PROMPT=$(prompt_default)
+
 #RPROMPT='$(git_prompt_info)[%*]'
 
-RPROMPT='$(git_prompt_info)[%*] $BATTERY%%'
+RPROMPT='$(git_prompt_info)[%*]'
+if test -e $BATTERY; then
+  RPROMPT=$RPROMPT:" $(cat $BATTERY)"
+fi
 
 # git theming
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[red]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="" #"%{$fg_bold[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[yellow]%}*%{$reset_color%}"

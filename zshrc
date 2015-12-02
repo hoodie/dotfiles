@@ -57,7 +57,7 @@ RVM_PATH=$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$CARGO_PATH:$CABAL_PATH
 
 
-export AVG_PATH=/home/hendrik/code/hub
+#export AVG_PATH=/home/hendrik/code/hub
 
 export RUST_SRC_PATH=$HOME/code/rust/packages/rust/src
 export RUST_BACKTRACE=0
