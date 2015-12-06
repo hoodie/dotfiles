@@ -28,10 +28,9 @@
 #     As such, not to use it can have some weird effects on the margins and indentation of the prompt.
 #
 
-local BATTERY="/sys/class/power_supply/BAT0/capacity"
-
 prompt_start() {
-  echo -n "%(?::%{$fg_bold[red]%}● %s)"
+  #echo -n "%(?::%{$fg_bold[red]%}● %s)"
+  echo -n "%(?:%{$fg_bold[green]%}● :%{$fg_bold[red]%}● %s)"
   echo -n '%{$reset_color%}'
 }
 
@@ -73,9 +72,6 @@ PROMPT=$(prompt_default)
 #RPROMPT='$(git_prompt_info)[%*]'
 
 RPROMPT='$(git_prompt_info)[%*]'
-if test -e $BATTERY; then
-  RPROMPT=$RPROMPT:" $(cat $BATTERY)"
-fi
 
 # git theming
 ZSH_THEME_GIT_PROMPT_PREFIX="" #"%{$fg_bold[red]%}"
