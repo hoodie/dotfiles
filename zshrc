@@ -3,7 +3,11 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 plugins=( git git-extras gitfast compleat archlinux kate cabal systemd coffee rails cargo rust) 
+#ZSH_THEME=agnoster
+# theme
 source $ZSH/oh-my-zsh.sh
+source ~/.dotfiles/hendriks_prompt.zsh
+export DEFAULT_USER=hendrik
 
 
 
@@ -30,8 +34,6 @@ COMPLETION_WAITING_DOTS="true"
 zstyle :compinstall filename '/home/hendrik/.zshrc'
 
 
-# theme
-source ~/.dotfiles/hendriks_prompt.zsh
 
 # bashstyle comments
 setopt interactivecomments
@@ -57,7 +59,7 @@ RVM_PATH=$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$CARGO_PATH:$CABAL_PATH
 
 
-#export AVG_PATH=/home/hendrik/code/hub
+#export AVG_PATH=/home/hendrik/code/libavg
 
 export RUST_SRC_PATH=$HOME/code/rust/packages/rust/src
 export RUST_BACKTRACE=0
