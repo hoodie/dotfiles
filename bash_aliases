@@ -22,9 +22,9 @@ lightgreen='\e[0;92m'
 LIGHTGREEN='\e[1;92m'
 
 # notifications
-function warn(){ echo -e ${RED}! ${NC}${red}$*${NC} ; }
-function info(){ echo -e ${BLUE}! ${NC}${blue}$*${NC} ; }
-function pass(){ echo -e ${WHITE}! ${NC}${white}$*${NC} ; }
+#function warn(){ echo -e ${RED}! ${NC}${red}$*${NC} ; }
+#function info(){ echo -e ${BLUE}! ${NC}${blue}$*${NC} ; }
+#function pass(){ echo -e ${WHITE}! ${NC}${white}$*${NC} ; }
 
 
 ## Moving around & all that jazz

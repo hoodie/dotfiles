@@ -53,13 +53,13 @@ bindkey -e
 CARGO_PATH=$HOME/.multirust/toolchains/nightly/cargo/bin
 CABAL_PATH=$HOME/.cabal/bin
 RVM_PATH=$HOME/.rvm/bin # Add RVM to PATH for scripting
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 #PATH=$PATH:$CARGO_PATH:$CABAL_PATH:$RVM_PATH
 PATH=$PATH:$CARGO_PATH:$CABAL_PATH
 
 
-#export AVG_PATH=/home/hendrik/code/libavg
+export AVG_PATH=/home/hendrik/code/libavg/..
 
 export RUST_SRC_PATH=$HOME/code/rust/packages/rust/src
 export RUST_BACKTRACE=0
