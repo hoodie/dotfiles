@@ -21,7 +21,6 @@ alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 source ~/.bash_aliases
 
-
 # Uncomment following line if you want to disable autosetting terminal title.
 DISABLE_AUTO_TITLE="true"
 
@@ -50,7 +49,7 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 
 #PATHS
-CARGO_PATH=$HOME/.multirust/toolchains/nightly/cargo/bin
+CARGO_PATH=$HOME/.multirust/toolchains/stable/cargo/bin
 CABAL_PATH=$HOME/.cabal/bin
 RVM_PATH=$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
@@ -59,9 +58,7 @@ RVM_PATH=$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:$CARGO_PATH:$CABAL_PATH
 
 
-export AVG_PATH=/home/hendrik/code/libavg/..
-
-export RUST_SRC_PATH=$HOME/code/rust/packages/rust/src
+export RUST_SRC_PATH=$HOME/code/hub/rust/src
 export RUST_BACKTRACE=0
 #export L4RE_BUILD_PATH=$HOME/TUD/Diplomarbeit/OS/l4re/build
 #export FIASCO_BUILD_PATH=$HOME/TUD/Diplomarbeit/OS/TUDOS/src/kernel/fiasco/mybuild
