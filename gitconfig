@@ -25,6 +25,7 @@
   st = status
   co = checkout
   ci = commit
+  wd = diff --word-diff
   server = daemon --reuseaddr --base-path=. --export-all --verbose --enable=receive-pack
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(bold yellow)%d%Creset %C() %s %C(reset) ( %C(yellow)%an%Creset %C(green)%cr )' --abbrev-commit --date=relative
 	tree = log --graph --full-history --all --color --date=short --pretty=format:\"%Cred%x09%h %Creset%ad%Cblue%d %Creset %s %C(bold)(%an)%Creset\"
