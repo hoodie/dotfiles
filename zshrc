@@ -2,11 +2,18 @@
 ## oh-my-zsh stuff
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-plugins=( git git-extras gitfast compleat archlinux kate cabal systemd coffee rails cargo rust) 
+plugins=( colorize
+          git git-extras gitfast compleat archlinux
+          kate cabal systemd coffee cargo rust
+          z zsh-syntax-highlighting
+          svn svn-fast-info
+          emoji-clock
+          )
+#plugins=( git git-extras gitfast compleat archlinux kate cabal systemd coffee cargo rust z)
 #ZSH_THEME=agnoster
 # theme
 source $ZSH/oh-my-zsh.sh
-source ~/.dotfiles/hendriks_prompt.zsh
+source ~/.dotfiles/hendriks_prompt.zsh-theme
 export DEFAULT_USER=hendrik
 
 
@@ -32,13 +39,9 @@ COMPLETION_WAITING_DOTS="true"
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/hendrik/.zshrc'
 
-
-
 # bashstyle comments
 setopt interactivecomments
 
-
-# End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
@@ -49,20 +52,14 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 
 #PATHS
-CARGO_PATH=$HOME/.multirust/toolchains/stable/cargo/bin
+CARGO_PATH=$HOME/.cargo/bin
 CABAL_PATH=$HOME/.cabal/bin
-RVM_PATH=$HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export GOPATH=$HOME/.go
+eval "$(direnv hook zsh)"
+source /usr/share/chruby/chruby.sh
 
-#PATH=$PATH:$CARGO_PATH:$CABAL_PATH:$RVM_PATH
-PATH=$PATH:$CARGO_PATH:$CABAL_PATH
-
+PATH=$PATH:$CARGO_PATH:$GOPATH/bin
 
 export RUST_SRC_PATH=$HOME/code/hub/rust/src
-export RUST_BACKTRACE=0
-#export L4RE_BUILD_PATH=$HOME/TUD/Diplomarbeit/OS/l4re/build
-#export FIASCO_BUILD_PATH=$HOME/TUD/Diplomarbeit/OS/TUDOS/src/kernel/fiasco/mybuild
-
-#envoy id_rsa
-#source <(envoy -p)
+export RUST_BACKTRACE=1
 

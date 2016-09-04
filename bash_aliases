@@ -53,14 +53,16 @@ alias ls='ls --color=auto --group-directories-first'
 #alias lash='ls -lash'
 alias ls="exa --group-directories-first"
 alias la="ls -a"
+alias ll="exa -l --git --group-directories-first"
 
 # Vim
 alias sv="sudo vim -p"    # open in tab
 alias please="sudo !!"
-alias v="vim -p"          
+alias v="vim -p"
 alias vi="vim"
 alias :e=vim
 alias :q="echo \"CAREFULL, this is not vim\""
+alias emacs="echo \"Hahahaha!! You must be kidding!!!\""
 
 
 # Git
@@ -68,6 +70,7 @@ alias svnpull='git svn rebase'
 alias svnpush='git svn rebase ; git svn dcommit'
 alias pull="git pull"
 alias push="git push"
+alias gadd="git add"
 alias commit="git commit"
 
 
@@ -80,7 +83,7 @@ alias df="df -h"
 
 # Misc Tools
 alias cal='cal -m'
-alias histedit="vim ~/.zsh_history" 
+alias histedit="vim ~/.zsh_history"
 alias kindlefy="mogrify -colorspace Gray -rotate '-90>' -resize 600x800 -dither FloydSteinberg -colors 16 -format png"
 alias monoplayer="mplayer -af pan=1:0.5:0.5 -channels 1"
 alias ramdisk='[ -d ~/Desktop/ram ] || mkdir ~/Desktop/ram && sudo mount -t tmpfs none ~/Desktop/ram && df | grep none '
@@ -135,6 +138,11 @@ function e() {
   vim $VIMARGS $@;
 }
 
+function svim() {
+  VIMARGS="--servername vimsrv --remote-silent"
+  gvim $VIMARGS $@;
+}
+
 # to hell with shortlinks
 function resolve(){ curl -Is $1 | sed -n 's/^Location: //ip'; }
 
@@ -178,6 +186,7 @@ function extract () {
 			*.gz)        gunzip $1      ;;
 			*.tar)       tar xvf $1     ;;
 			*.tbz2)      tar xvjf $1    ;;
+			*.xz)        tar xvJf $1    ;;
 			*.tgz)       tar xvzf $1    ;;
 			*.zip)       unzip $1       ;;
 			*.Z)         uncompress $1  ;;
@@ -190,8 +199,8 @@ function extract () {
 }
 
 # get mad cli skillz
-function cmdfu(){ 
-  curl "http://www.commandlinefu.com/commands/matching/$@/$(echo -n $@ | openssl base64)/plaintext" --silent | sed "s/\(^#.*\)/\x1b[32m\1\x1b[0m/g" 
+function cmdfu(){
+  curl "http://www.commandlinefu.com/commands/matching/$@/$(echo -n $@ | openssl base64)/plaintext" --silent | sed "s/\(^#.*\)/\x1b[32m\1\x1b[0m/g"
 }
 
 ## Pacman aliases ## {{{
@@ -205,15 +214,15 @@ alias paci="/usr/bin/pacman -Si"		# '[i]nfo'		- show information about a package
 alias paclo="/usr/bin/pacman -Qdt"		# '[l]ist [o]rphans'	- list all packages which are orphaned
 alias pacc="sudo /usr/bin/pacman -Scc"		# '[c]lean cache'	- delete all not currently installed package files
 alias paclf="/usr/bin/pacman -Ql"		# '[l]ist [f]iles'	- list all files installed by a given package
-alias pacexpl="/usr/bin/pacman -D --asexp"	# 'mark as [expl]icit'	- mark one or more packages as explicitly installed 
+alias pacexpl="/usr/bin/pacman -D --asexp"	# 'mark as [expl]icit'	- mark one or more packages as explicitly installed
 alias pacimpl="/usr/bin/pacman -D --asdep"	# 'mark as [impl]icit'	- mark one or more packages as non explicitly installed
 
 function rss(){
   FEED=${@:-https://www.archlinux.org/feeds/packages/}
-  curl $FEED --silent | xmllint --format - | sed -n 's/.*<title>\([^\<]*\).*/\1/p' | grep -e $(uname --machine) -e any | column -t -s \ 
+  curl $FEED --silent | xmllint --format - | sed -n 's/.*<title>\([^\<]*\).*/\1/p' | grep -e $(uname --machine) -e any | column -t -s \
 }
 function pacnews(){
-  curl https://www.archlinux.org/feeds/packages/ --silent | xmllint --format - | sed -n 's/.*<title>\([^\<]*\).*/\1/p' | grep -e $(uname --machine) -e any | column -t -s \ 
+  curl https://www.archlinux.org/feeds/packages/ --silent | xmllint --format - | sed -n 's/.*<title>\([^\<]*\).*/\1/p' | grep -e $(uname --machine) -e any | column -t -s " "
 }
 
 function archnews(){

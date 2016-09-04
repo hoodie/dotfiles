@@ -36,7 +36,7 @@ export VISUAL=vim                           # for crontab
 # (must haves for those that use the command line alot)
 # Increase history file size,
 # increase number of commands saved (default: 500),
-# append commands instead of overwriting (nice for two or more sessions), 
+# append commands instead of overwriting (nice for two or more sessions),
 # add command to history after executing,
 # don't put duplicate lines in history, ignore same successive entries. # thanks to kyle keen
 export HISTFILESIZE=20000
@@ -65,4 +65,8 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 GPG_TTY=`tty`
-export GPG_TTY 
+export GPG_TTY
+
+export RUST_SRC_PATH=/usr/src/rust/src
+export RUST_BACKTRACE=0
+source /usr/share/chruby/chruby.sh

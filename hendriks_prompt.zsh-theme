@@ -30,6 +30,8 @@
 
 CURRENT_BG='NONE'
 
+PS1_SYM="§" # $ § ¶
+
 # Special Powerline characters
 
 () {
@@ -175,6 +177,7 @@ prompt_virtualenv() {
   fi
 }
 
+
 # Status:
 # - was there an error
 # - am I root
@@ -196,6 +199,7 @@ build_prompt() {
   prompt_virtualenv
   prompt_context
   prompt_dir
+  #prompt_segment NONE NONE $PS1_SYM
   #prompt_git
   #prompt_hg
   prompt_end
