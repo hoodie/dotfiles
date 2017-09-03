@@ -4,6 +4,7 @@
 	editor = vim
 [core]
 	editor = vim
+	excludesfile = /Users/hendrik/.gitignore
 [color]
 	diff   = auto
 	status = auto

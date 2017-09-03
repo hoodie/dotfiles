@@ -7,6 +7,7 @@ plugins=( colorize
           kate cabal systemd coffee cargo rust
           z zsh-syntax-highlighting
           svn svn-fast-info
+          xcode
           emoji-clock
           )
 #plugins=( git git-extras gitfast compleat archlinux kate cabal systemd coffee cargo rust z)
@@ -56,10 +57,16 @@ CARGO_PATH=$HOME/.cargo/bin
 CABAL_PATH=$HOME/.cabal/bin
 export GOPATH=$HOME/.go
 eval "$(direnv hook zsh)"
-source /usr/share/chruby/chruby.sh
 
 PATH=$PATH:$CARGO_PATH:$GOPATH/bin
 
 export RUST_SRC_PATH=$HOME/code/hub/rust/src
 export RUST_BACKTRACE=1
+export NVS_HOME="$HOME/.nvs"
+[ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
+export COL_BUILDS_ROOT='\\talos.drs.expertcity.com\dependencies'
+#export COL_BUILDS_ROOT=/Users/hendrik/_localbuilds
+export COL_ARTIFACTORY_ROOT=https://artifactory.prodwest.citrixsaassbe.net/artifactory/PlatformDependencies/com/getgo/dependencies/
+export COL_LOCAL_BUILDS_ROOT=/Users/hendrik/_localbuilds
 
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
