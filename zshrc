@@ -32,6 +32,7 @@ source ~/.bash_aliases
 # Uncomment following line if you want to disable autosetting terminal title.
 DISABLE_AUTO_TITLE="true"
 
+fpath+=~/.zfunc # local completions
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 compinit
 autoload -Uz compinit
@@ -56,7 +57,9 @@ bindkey -e
 CARGO_PATH=$HOME/.cargo/bin
 CABAL_PATH=$HOME/.cabal/bin
 export GOPATH=$HOME/.go
-eval "$(direnv hook zsh)"
+
+if [ -n "${commands[direnv]}" ]; then; eval "$(direnv hook zsh)"; fi
+if [ -n "${commands[chruby]}" ]; then; source /usr/share/chruby/chruby.sh; fi
 
 PATH=$PATH:$CARGO_PATH:$GOPATH/bin
 
@@ -69,4 +72,3 @@ export COL_BUILDS_ROOT='\\talos.drs.expertcity.com\dependencies'
 export COL_ARTIFACTORY_ROOT=https://artifactory.prodwest.citrixsaassbe.net/artifactory/PlatformDependencies/com/getgo/dependencies/
 export COL_LOCAL_BUILDS_ROOT=/Users/hendrik/_localbuilds
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
