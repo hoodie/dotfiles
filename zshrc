@@ -28,6 +28,7 @@ export VISUAL=vim                           # for crontab
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 source ~/.bash_aliases
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Uncomment following line if you want to disable autosetting terminal title.
 DISABLE_AUTO_TITLE="true"
@@ -54,21 +55,17 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 
 #PATHS
-CARGO_PATH=$HOME/.cargo/bin
-CABAL_PATH=$HOME/.cabal/bin
+export CARGO_PATH=$HOME/.cargo/bin
+export RUST_BACKTRACE=1
 export GOPATH=$HOME/.go
 
 if [ -n "${commands[direnv]}" ]; then; eval "$(direnv hook zsh)"; fi
 if [ -n "${commands[chruby]}" ]; then; source /usr/share/chruby/chruby.sh; fi
+export EMSPATH=$HOME/emsdk-portable:$HOME/emsdk-portable/clang/fastcomp/build_incoming_64/bin:$HOME/emsdk-portable/emscripten/incoming
+eval "$(direnv hook zsh)"
 
-PATH=$PATH:$CARGO_PATH:$GOPATH/bin
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# export DISABLE_AUTO_TITLE="true"
 
-export RUST_SRC_PATH=$HOME/code/hub/rust/src
-export RUST_BACKTRACE=1
-export NVS_HOME="$HOME/.nvs"
-[ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
-export COL_BUILDS_ROOT='\\talos.drs.expertcity.com\dependencies'
-#export COL_BUILDS_ROOT=/Users/hendrik/_localbuilds
-export COL_ARTIFACTORY_ROOT=https://artifactory.prodwest.citrixsaassbe.net/artifactory/PlatformDependencies/com/getgo/dependencies/
-export COL_LOCAL_BUILDS_ROOT=/Users/hendrik/_localbuilds
 
+PATH=$PATH:$CARGO_PATH

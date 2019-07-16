@@ -38,14 +38,6 @@ alias cdo='cat ~/.cdo; cd "$(cat ~/.cdo)"'                   # cd  to saved dir 
 function cdl(){ cd $1; ls ;}
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
-function open() {
-  if [ "$#" -eq 0 ];then
-    xdg-open .
-  else
-    xdg-open "$@"
-  fi
-}
-
 # listing
 alias l='ls'
 alias lsd='ls -d */'
@@ -54,12 +46,15 @@ alias ls='ls --color=auto --group-directories-first'
 alias ls="exa --group-directories-first"
 alias la="ls -a"
 alias ll="exa -l --git --group-directories-first"
+alias lla="exa --long --git --group-directories-first --all"
+alias lt="exa -l --git --group-directories-first -T --git-ignore"
 
 # Vim
 alias sv="sudo vim -p"    # open in tab
 alias please="sudo !!"
 alias v="vim -p"
 alias vi="vim"
+#alias gvim="mvim"
 alias :e=vim
 alias :q="echo \"CAREFULL, this is not vim\""
 alias emacs="echo \"Hahahaha!! You must be kidding!!!\""
@@ -72,6 +67,7 @@ alias pull="git pull"
 alias push="git push"
 alias gadd="git add"
 alias commit="git commit"
+alias deconflict="git st -s | egrep '^UU '| cut -d ' ' -f2 | xargs gvim -p"
 
 
 # System
@@ -82,7 +78,6 @@ alias du="du -h"
 alias df="df -h"
 
 # Misc Tools
-alias cal='cal -m'
 alias histedit="vim ~/.zsh_history"
 alias kindlefy="mogrify -colorspace Gray -rotate '-90>' -resize 600x800 -dither FloydSteinberg -colors 16 -format png"
 alias monoplayer="mplayer -af pan=1:0.5:0.5 -channels 1"

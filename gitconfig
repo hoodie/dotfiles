@@ -4,7 +4,7 @@
     editor = vim
 [core]
     editor = vim
-    excludesfile = /Users/hendrik/.gitignore
+    excludesfile = ~/.gitignore
 [color]
     diff   = auto
     status = auto
@@ -20,9 +20,10 @@
 [gc]
     reflogExpire = never
 [alias]
+    git = !exec git
     unstage = reset HEAD --
     rollback = reset --hard HEAD~1
-    last = log -1 HEAD --oneline --decorate
+    last = !git --no-pager log -1 HEAD --oneline --decorate
     st = status
     co = checkout
     ci = commit
@@ -33,14 +34,18 @@
     tree = log --graph --full-history --all --color --date=short --pretty=format:\"%Cred%x09%h %Creset%ad%Cblue%d %Creset %s %C(bold)(%an)%Creset\"
     br = branch --sort=-committerdate \
         --format '%(HEAD) %(color:red)%(objectname:short)%(color:reset)  %(if)%(HEAD)%(then)%(color:green)%(refname:short)%(color:reset)%(else)%(refname:short)%(end) - %(color:cyan)(%(committerdate:relative))%(color:reset)'
-
     bv = branch --sort=-committerdate \
         --format '%(HEAD) %(color:red)%(objectname:short)%(color:reset)  %(if)%(HEAD)%(then)%(color:green)%(refname:short)%(color:reset)%(else)%(refname:short)%(end) - %(color:cyan)(%(committerdate:relative))%(color:reset)%(if)%(upstream)%(then) -> %(color:magenta)%(upstream:short) %(color:white)%(upstream:track)%(color:reset)%(end)'
   	wip = commit -m WIP --no-verify
+    tree = log --graph --full-history --all --color --date=short --pretty=format:\"%Cred%x09%h %Creset%ad%Cblue%d %Creset %s %C(bold)(%an)%Creset\"
+    pick = cherry-pick
+    wip = commit --no-verify -m WIP
+    bugfix = feature -a bugfix
+    hendriks = feature -a feature/hendriks
+    staged = diff --staged
 
 [url "git@github.com:"]
     insteadOf = "github:"
 [url "https://aur.archlinux.org/"]
     insteadOf = "aur:"
-
 
