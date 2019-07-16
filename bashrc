@@ -69,4 +69,4 @@ export GPG_TTY
 
 export RUST_SRC_PATH=/usr/src/rust/src
 export RUST_BACKTRACE=0
-source /usr/share/chruby/chruby.sh
+
