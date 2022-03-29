@@ -50,6 +50,8 @@ alias lla="exa --long --git --group-directories-first --all"
 alias lt="exa -l --git --group-directories-first -T --git-ignore"
 
 # Vim
+alias vim=nvim
+alias oldvim="\vim"
 alias sv="sudo vim -p"    # open in tab
 alias please="sudo !!"
 alias v="vim -p"
