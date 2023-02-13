@@ -4,7 +4,7 @@
 ZSH=$HOME/.oh-my-zsh
 plugins=( colorize
           git git-extras gitfast compleat archlinux
-          kate cabal systemd coffee cargo rust
+          systemd rust
           z zsh-syntax-highlighting
           svn svn-fast-info
           xcode
