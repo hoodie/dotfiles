@@ -22,6 +22,7 @@
 
 [push]
     default = tracking
+    followTags = true
 [pack]
     threads = 3
 [gc]
