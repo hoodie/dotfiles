@@ -49,3 +49,9 @@ disabled = false
 [rust]
 format = '[$symbol($version)]($style)'
 disabled = true
+
+[cmd_duration]
+min_time = 500
+format = 'underwent [$duration](bold yellow)'
+disabled = false
+show_notifications = true

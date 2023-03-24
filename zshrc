@@ -23,7 +23,7 @@ export VISUAL=vim # for crontab
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 source ~/.bash_aliases
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Uncomment following line if you want to disable autosetting terminal title.
 DISABLE_AUTO_TITLE="true"
@@ -50,7 +50,7 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 
 if [ -n "${commands[direnv]}" ]; then; eval "$(direnv hook zsh)"; fi
-if [ -n "${commands[starship]}" ]; then; eval "$(starship init zsh)"; fi
+if [ -n "${commands[starship]}" ]; then; export STARSHIP_CONFIG="$HOME/.dotfiles/starship.toml";eval "$(starship init zsh)"; fi
 
 #test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
