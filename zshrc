@@ -1,4 +1,3 @@
-
 ## oh-my-zsh stuff
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
@@ -10,19 +9,15 @@ plugins=( colorize
           xcode
           emoji-clock
           )
-#plugins=( git git-extras gitfast compleat archlinux kate cabal systemd coffee cargo rust z)
-#ZSH_THEME=agnoster
 # theme
 source $ZSH/oh-my-zsh.sh
 source ~/.dotfiles/hendriks_prompt.zsh-theme
-export DEFAULT_USER=hendrik
-
-
+export DEFAULT_USER=hendriks
 
 # Editor
 export EDITOR=vim
 export FCEDIT=vim
-export VISUAL=vim                           # for crontab
+export VISUAL=vim # for crontab
 
 # aliases
 alias zshconfig="vim ~/.zshrc"
@@ -54,18 +49,22 @@ unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
+if [ -n "${commands[direnv]}" ]; then; eval "$(direnv hook zsh)"; fi
+if [ -n "${commands[starship]}" ]; then; eval "$(starship init zsh)"; fi
+
+#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
 #PATHS
 export CARGO_PATH=$HOME/.cargo/bin
-export RUST_BACKTRACE=1
-export GOPATH=$HOME/.go
-
-if [ -n "${commands[direnv]}" ]; then; eval "$(direnv hook zsh)"; fi
-if [ -n "${commands[chruby]}" ]; then; source /usr/share/chruby/chruby.sh; fi
-export EMSPATH=$HOME/emsdk-portable:$HOME/emsdk-portable/clang/fastcomp/build_incoming_64/bin:$HOME/emsdk-portable/emscripten/incoming
-eval "$(direnv hook zsh)"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-# export DISABLE_AUTO_TITLE="true"
-
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 PATH=$PATH:$CARGO_PATH
+
+# Wasmer
+export WASMER_DIR="/Users/hendriks/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
+export WASMTIME_HOME="$HOME/.wasmtime"
+export PATH="$WASMTIME_HOME/bin:$PATH"
+
