@@ -56,11 +56,14 @@ if [ -n "${commands[starship]}" ]; then; eval "$(starship init zsh)"; fi
 
 #PATHS
 export CARGO_PATH=$HOME/.cargo/bin
+
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+export DENO_INSTALL="/Users/hendrik/.deno"
 
 PATH=$PATH:$CARGO_PATH
+export PATH="$DENO_INSTALL/bin:$PATH"
 
 # Wasmer
 export WASMER_DIR="/Users/hendriks/.wasmer"
