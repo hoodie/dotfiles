@@ -6,19 +6,13 @@
     editor = nvim
     #editor = code --wait
     excludesfile = ~/.gitignore
+
 [color]
     diff   = auto
     status = auto
     branch = auto
     grep   = auto
     ui     = auto
-[diff]
-    #tool = vimdiff
-    tool = difftastic
-[difftool]
-    prompt = false
-[difftool "difftastic"]
-    cmd = difft "$LOCAL" "$REMOTE"
 
 [init]
     defaultBranch = main
@@ -32,6 +26,13 @@
     threads = 3
 [gc]
     reflogExpire = never
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
 [alias]
     git = !exec git
     dft = difftool
@@ -43,8 +44,9 @@
     ci = commit
     wd = diff --word-diff
     server = daemon --reuseaddr --base-path=. --export-all --verbose --enable=receive-pack
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(bold yellow)%d%Creset %C() %s %C(reset) ( %C(yellow)%an%Creset %C(green)%cr )' --abbrev-commit --date=relative
-    ln = log --graph --pretty=format:'%Cred%h%Creset -%C(bold yellow)%d%Creset %C() %s %C(reset) ( %C(yellow)%an%Creset %C(green)%cr )' --abbrev-commit --date=iso --no-merges
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(bold yellow)%d%Creset %C() %s %C(reset) ( %C(yellow)%an%Creset %C(green)%cr )' --abbrev-commit
+    ln = log --graph --pretty=format:'%Cred%h%Creset -%C(bold yellow)%d%Creset %C() %s %C(reset) ( %C(yellow)%an%Creset %C(green)%cr )' --abbrev-commit --no-merges
+    l = ln --perl-regexp --author='^[^bamboo]'
     tree = log --graph --full-history --all --color --date=short --pretty=format:\"%Cred%x09%h %Creset%ad%Cblue%d %Creset %s %C(bold)(%an)%Creset\"
     br = branch --sort=-committerdate \
         --format '%(HEAD) %(color:red)%(objectname:short)%(color:reset)  %(if)%(HEAD)%(then)%(color:green)%(refname:short)%(color:reset)%(else)%(refname:short)%(end) - %(color:cyan)(%(committerdate:relative))%(color:reset)'
@@ -53,7 +55,7 @@
   	wip = commit -m WIP --no-verify
     tree = log --graph --full-history --all --color --date=short --pretty=format:\"%Cred%x09%h %Creset%ad%Cblue%d %Creset %s %C(bold)(%an)%Creset\"
     pick = cherry-pick
-    wip = commit --no-verify -m WIP
+    ci = commit --no-verify -m \"ci: WIP\"
     bugfix = feature -a bugfix
     hendriks = feature -a feature/hendriks
     staged = diff --staged
@@ -63,8 +65,3 @@
 [url "https://aur.archlinux.org/"]
     insteadOf = "aur:"
 
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
