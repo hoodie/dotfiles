@@ -31,6 +31,7 @@ LIGHTGREEN='\e[1;92m'
 alias back='cd $OLDPWD'
 alias ..="cd .."
 alias ...="cd ../.."
+alias cat="bat --style plain --paging=never"
 alias cd..="cd .." #work around a common typo
 alias cdd="cd ~/Desktop && ls"
 alias cds="pwd  > ~/.cdo"   # save current dir location
@@ -48,6 +49,9 @@ alias la="ls -a"
 alias ll="exa -l --git --group-directories-first"
 alias lla="exa --long --git --group-directories-first --all"
 alias lt="exa -l --git --group-directories-first -T --git-ignore"
+
+# TabNaming
+alias tabfolder='echo -ne "\033]0;"📂 `basename $PWD`"\007"'
 
 # Vim
 alias vim=nvim
@@ -69,7 +73,7 @@ alias pull="git pull"
 alias push="git push"
 alias gadd="git add"
 alias commit="git commit"
-alias deconflict="git st -s | egrep '^UU '| cut -d ' ' -f2 | xargs gvim -p"
+alias deconflict="git st -s | egrep '^UU '| cut -d ' ' -f2 | xargs nvim -p"
 
 
 # System
