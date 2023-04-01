@@ -4,8 +4,21 @@
 # Inserts a blank line between shell prompts
 add_newline = false
 
-format = """ $character$jobs$git_commit$username$hostname$directory"""
-right_format = """$git_status$git_state$git_branch$git_metrics $time$battery"""
+format = """\
+$character\
+$jobs\
+$git_commit\
+$username\
+$hostname\
+$directory"""
+right_format = """\
+$rust\
+$git_status\
+$git_state\
+$git_branch\
+$git_metrics \
+$time\
+$battery"""
 
 [directory]
 style = "bold blue"
@@ -46,8 +59,8 @@ format = '[\[$time\]]()'
 disabled = false
 
 [rust]
-format = '[$symbol($version)]($style)'
-disabled = true
+format = '[$symbol($version)]($style) '
+disabled = false
 
 [cmd_duration]
 min_time = 500
