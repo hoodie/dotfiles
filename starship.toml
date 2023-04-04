@@ -18,7 +18,10 @@ $git_state\
 $git_branch\
 $git_metrics \
 $time\
-$battery"""
+$battery\
+"""
+
+command_timeout = 750
 
 [directory]
 style = "bold blue"
@@ -67,3 +70,6 @@ min_time = 500
 format = 'underwent [$duration](bold yellow)'
 disabled = false
 show_notifications = true
+
+[[battery.display]]
+threshold = 70
