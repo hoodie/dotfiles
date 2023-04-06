@@ -10,7 +10,9 @@ $jobs\
 $git_commit\
 $username\
 $hostname\
-$directory"""
+$directory\
+"""
+
 right_format = """\
 $rust\
 $git_status\
