@@ -39,6 +39,14 @@ alias cdo='cat ~/.cdo; cd "$(cat ~/.cdo)"'                   # cd  to saved dir 
 function cdl(){ cd $1; ls ;}
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
+function open() {
+  if [ "$#" -eq 0 ];then
+    xdg-open . > /dev/null
+  else
+    xdg-open "$@" > /dev/null
+  fi
+}
+
 # listing
 alias l='ls'
 alias lsd='ls -d */'
@@ -84,6 +92,7 @@ alias du="du -h"
 alias df="df -h"
 
 # Misc Tools
+alias cal='cal -m'
 alias histedit="vim ~/.zsh_history"
 alias kindlefy="mogrify -colorspace Gray -rotate '-90>' -resize 600x800 -dither FloydSteinberg -colors 16 -format png"
 alias monoplayer="mplayer -af pan=1:0.5:0.5 -channels 1"
@@ -107,7 +116,7 @@ function new-tmux-from-dir-name { tmux new-session -As  `basename $PWD`; }
 # a grep for every occasion
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+alias egrep='grep -E --color=auto'
 alias gr='find . | grep -v .svn | xargs grep -Isn --color=auto'
 alias cgr='find . -iname \*.c | grep -v .svn | xargs grep -Isn --color=auto'
 alias hgr='find . -iname \*.h | grep -v .svn | xargs grep -Isn --color=auto'
@@ -206,17 +215,18 @@ function cmdfu(){
 
 ## Pacman aliases ## {{{
 #if necessary, replace 'pacman' with your favorite AUR helper and adapt the commands accordingly
-alias pac="sudo /usr/bin/pacman -S"		# default action	- install one or more packages
-alias pacin="sudo /usr/bin/pacman -S"		# default action	- install one or more packages
-alias pacu="sudo /usr/bin/pacman -Syu"		# '[u]pdate'		- upgrade all packages to their newest version
-alias pacr="sudo /usr/bin/pacman -Rs"		# '[r]emove'		- uninstall one or more packages
-alias pacs="/usr/bin/pacman -Ss"		# '[s]earch'		- search for a package using one or more keywords
-alias paci="/usr/bin/pacman -Si"		# '[i]nfo'		- show information about a package
-alias paclo="/usr/bin/pacman -Qdt"		# '[l]ist [o]rphans'	- list all packages which are orphaned
-alias pacc="sudo /usr/bin/pacman -Scc"		# '[c]lean cache'	- delete all not currently installed package files
-alias paclf="/usr/bin/pacman -Ql"		# '[l]ist [f]iles'	- list all files installed by a given package
-alias pacexpl="/usr/bin/pacman -D --asexp"	# 'mark as [expl]icit'	- mark one or more packages as explicitly installed
-alias pacimpl="/usr/bin/pacman -D --asdep"	# 'mark as [impl]icit'	- mark one or more packages as non explicitly installed
+
+alias pac="sudo /usr/bin/pacman -S"        # default action	- install one or more packages
+alias pacin="sudo /usr/bin/pacman -S"      # default action	- install one or more packages
+alias pacu="sudo /usr/bin/pacman -Syu"     # '[u]pdate'		- upgrade all packages to their newest version
+alias pacr="sudo /usr/bin/pacman -Rs"      # '[r]emove'		- uninstall one or more packages
+alias pacs="/usr/bin/pacman -Ss"           # '[s]earch'		- search for a package using one or more keywords
+alias paci="/usr/bin/pacman -Si"           # '[i]nfo'		- show information about a package
+alias paclo="/usr/bin/pacman -Qdt"         # '[l]ist [o]rphans'	- list all packages which are orphaned
+alias pacc="sudo /usr/bin/pacman -Scc"     # '[c]lean cache'	- delete all not currently installed package files
+alias paclf="/usr/bin/pacman -Ql"          # '[l]ist [f]iles'	- list all files installed by a given package
+alias pacexpl="/usr/bin/pacman -D --asexp" # 'mark as [expl]icit'	- mark one or more packages as explicitly installed
+alias pacimpl="/usr/bin/pacman -D --asdep" # 'mark as [impl]icit'	- mark one or more packages as non explicitly installed
 
 function rss(){
   FEED=${@:-https://www.archlinux.org/feeds/packages/}
