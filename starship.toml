@@ -14,6 +14,7 @@ $directory\
 """
 
 right_format = """\
+$nodejs\
 $rust\
 $git_status\
 $git_state\
@@ -49,7 +50,9 @@ success_symbol = '[●](green)' # The 'success_symbol' segment is being set to '
 disabled = true
 
 [nodejs]
-disabled = true
+disabled = false
+format = '[$symbol($version )]($style)'
+version_format = '${major}'
 
 [git_branch]
 format = '[$symbol$branch(:$remote_branch)]($style)'
@@ -66,6 +69,7 @@ disabled = false
 
 [rust]
 format = '[$symbol($version)]($style) '
+version_format = '${major}.${minor}'
 disabled = false
 
 [cmd_duration]
