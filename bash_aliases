@@ -52,11 +52,11 @@ alias l='ls'
 alias lsd='ls -d */'
 alias ls='ls --color=auto --group-directories-first'
 #alias lash='ls -lash'
-alias ls="exa --group-directories-first"
+alias ls="eza --group-directories-first"
 alias la="ls -a"
-alias ll="exa -l --git --group-directories-first"
-alias lla="exa --long --git --group-directories-first --all"
-alias lt="exa -l --git --group-directories-first -T --git-ignore"
+alias ll="eza -l --git --group-directories-first"
+alias lla="eza --long --git --group-directories-first --all"
+alias lt="eza -l --git --group-directories-first -T --git-ignore"
 
 # TabNaming
 alias tabfolder='echo -ne "\033]0;"📂 `basename $PWD`"\007"'
