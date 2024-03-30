@@ -48,8 +48,6 @@ if [[ $(uname) != "Darwin" ]]; then
       xdg-open "$@" > /dev/null
     fi
   }
-else
-  echo "this is a mac"
 fi
 
 # listing
