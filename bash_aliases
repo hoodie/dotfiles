@@ -39,13 +39,16 @@ alias cdo='cat ~/.cdo; cd "$(cat ~/.cdo)"'                   # cd  to saved dir 
 function cdl(){ cd $1; ls ;}
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
-function open() {
-  if [ "$#" -eq 0 ];then
-    xdg-open . > /dev/null
-  else
-    xdg-open "$@" > /dev/null
-  fi
-}
+if [[ $(uname) -ne "Darwin" ]]; then
+  function open() {
+    /usr/bin/open "$@"
+    if [ "$#" -eq 0 ];then
+      xdg-open . > /dev/null
+    else
+      xdg-open "$@" > /dev/null
+    fi
+  }
+fi
 
 # listing
 alias l='ls'
