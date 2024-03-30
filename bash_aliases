@@ -39,7 +39,7 @@ alias cdo='cat ~/.cdo; cd "$(cat ~/.cdo)"'                   # cd  to saved dir 
 function cdl(){ cd $1; ls ;}
 function mkcd() { mkdir -p "$@" && cd "$_"; }
 
-if [[ $(uname) -ne "Darwin" ]]; then
+if [[ $(uname) != "Darwin" ]]; then
   function open() {
     /usr/bin/open "$@"
     if [ "$#" -eq 0 ];then
@@ -48,6 +48,8 @@ if [[ $(uname) -ne "Darwin" ]]; then
       xdg-open "$@" > /dev/null
     fi
   }
+else
+  echo "this is a mac"
 fi
 
 # listing
