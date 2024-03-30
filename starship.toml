@@ -21,10 +21,14 @@ $git_state\
 $git_branch\
 $git_metrics \
 $time\
+$status\
 $battery\
 """
 
 command_timeout = 750
+
+[status]
+disabled = false
 
 [directory]
 style = "bold blue"
