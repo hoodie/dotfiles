@@ -20,8 +20,8 @@ $git_status\
 $git_state\
 $git_branch\
 $git_metrics \
-$time\
 $status\
+$time\
 $battery\
 """
 
@@ -29,6 +29,10 @@ command_timeout = 750
 
 [status]
 disabled = false
+map_symbol = true
+pipestatus = true
+format = '[$symbol$status$pipestatus]($style) '
+pipestatus_format = '\[$pipestatus\] => [$symbol$common_meaning$signal_name$maybe_int]($style)'
 
 [directory]
 style = "bold blue"
