@@ -36,6 +36,8 @@
 [alias]
     git = !exec git
     dft = difftool
+    cm = commit -m
+    fpush = push --force-with-lease
     unstage = reset HEAD --
     rollback = reset --hard HEAD~1
     last = !git --no-pager log -1 HEAD --oneline --decorate
@@ -65,3 +67,5 @@
 [url "https://aur.archlinux.org/"]
     insteadOf = "aur:"
 
+[branch]
+	sort = committerdate
