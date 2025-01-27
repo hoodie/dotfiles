@@ -61,6 +61,8 @@ alias ll="eza -l --git --group-directories-first"
 alias lla="eza --long --git --group-directories-first --all"
 alias lt="eza -l --git --group-directories-first -T --git-ignore"
 
+alias bashuptime='ps -o lstart= -p $$'
+
 # TabNaming
 alias tabfolder='echo -ne "\033]0;"📂 `basename $PWD`"\007"'
 
@@ -85,6 +87,10 @@ alias push="git push"
 alias gadd="git add"
 alias commit="git commit"
 alias deconflict="git st -s | egrep '^UU '| cut -d ' ' -f2 | xargs nvim -p"
+
+batdiff() {
+    git diff --name-only --relative --diff-filter=d | xargs bat --diff
+}
 
 
 # System
@@ -289,4 +295,3 @@ else
   export LESS_TERMCAP_se=$'\e[0m'
   export LESS_TERMCAP_me=$'\e[0m'
 fi
-
