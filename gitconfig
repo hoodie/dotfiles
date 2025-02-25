@@ -1,11 +1,23 @@
 [user]
     name = Hendrik Sollich
     email = hendrik@hoodie.de
-    editor = vim
+
 [core]
     editor = nvim
     #editor = code --wait
     excludesfile = ~/.gitignore
+
+[tag]
+    sort = version:refname
+
+[help]
+    autocorrect = prompt
+
+[commit]
+    verbose = true
+
+[column]
+    ui = auto
 
 [color]
     diff   = auto
@@ -16,14 +28,28 @@
 
 [init]
     defaultBranch = main
+
 [push]
     default = tracking
     followTags = true
     autoSetupRemote = true
+
 [pull]
     rebase = true
+
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+
 [pack]
     threads = 4
+
 [gc]
     reflogExpire = never
 
@@ -36,6 +62,7 @@
 
 [diff]
     external = difft
+	algorithm = histogram
 
 [alias]
     git = !exec git
