@@ -64,7 +64,7 @@ alias lt="eza -l --git --group-directories-first -T --git-ignore"
 alias bashuptime='ps -o lstart= -p $$'
 
 # TabNaming
-alias tabfolder='echo -ne "\033]0;"📂 `basename $PWD`"\007"'
+function tabfolder() {echo -ne "\033]0;"📂 `basename $PWD`"\007"}
 
 # Vim
 alias vim=nvim
@@ -132,6 +132,9 @@ alias hgr='find . -iname \*.h | grep -v .svn | xargs grep -Isn --color=auto'
 alias grepmail="grep -Eio '\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b'"
 alias zgrepmail="zgrep -Eio '\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b'"
 
+typeset -a precmd_functions
+# append the function to our array of precmd functions
+precmd_functions+=(tabfolder)
 
 function wmp2ogg() { find . -iname '*wma' \( -exec ffmpeg -i {} -acodec vorbis -aq 5  {}.ogg \; \);  }
 function ogg2mp3() { find . -iname '*ogg' \( -exec ffmpeg -i {} -acodec mp3    -aq 1  {}.mp3 \; \);  }
